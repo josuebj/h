@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="hce"/>
+  <table-filter match-name="grado_instruccion"/>
+  <table-filter match-name="alergia"/>
+  <table-filter match-name="his"/>
+  <table-filter match-name="recetamedica"/>
+  <table-filter match-name="detalle_his"/>
+  <table-filter match-name="examen_fisico"/>
+  <table-filter match-name="topico"/>
+  <table-filter match-name="usuario_rol"/>
+  <table-filter match-name="persona_tipo_persona"/>
+  <table-filter match-name="detalle_receta"/>
+  <table-filter match-name="tipo_empleado"/>
+  <table-filter match-name="medicamento"/>
+  <table-filter match-name="cie10"/>
+  <table-filter match-name="rol"/>
+  <table-filter match-name="usuario"/>
+  <table-filter match-name="sexualidad"/>
+  <table-filter match-name="rol_servicio"/>
+  <table-filter match-name="ubigeo"/>
+  <table-filter match-name="historia_clinica"/>
+  <table-filter match-name="persona"/>
+  <table-filter match-name="centro_salud_servicio_especialdiad"/>
+  <table-filter match-name="centro_salud"/>
+  <table-filter match-name="servicio_especialidad"/>
+  <table-filter match-name="tipo_persona"/>
+  <table-filter match-name="unidad_militar"/>
+  <table-filter match-name="admision"/>
+  <table-filter match-name="antecedente"/>
+</hibernate-reverse-engineering>

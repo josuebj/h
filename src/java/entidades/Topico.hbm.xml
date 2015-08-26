@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-ago-2015 21:41:02 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entidades.Topico" table="topico" catalog="hce" optimistic-lock="version">
+        <id name="idTopico" type="java.lang.Integer">
+            <column name="ID_Topico" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="historiaClinica" class="entidades.HistoriaClinica" fetch="select">
+            <column name="Historia_Clinica_ID_Historia_Clinica" not-null="true" />
+        </many-to-one>
+        <many-to-one name="recetamedica" class="entidades.Recetamedica" fetch="select">
+            <column name="RecetaMedica_ID_Receta_Medica" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="entidades.Usuario" fetch="select">
+            <column name="Usuario_ID_Usuario" not-null="true" />
+        </many-to-one>
+        <property name="horaIngreso" type="time">
+            <column name="Hora_Ingreso" length="8" />
+        </property>
+        <property name="tipoTratamiento" type="string">
+            <column name="Tipo_Tratamiento" length="45" />
+        </property>
+        <property name="otros" type="string">
+            <column name="Otros" length="45" />
+        </property>
+        <property name="horaSalida" type="time">
+            <column name="Hora_Salida" length="8" />
+        </property>
+    </class>
+</hibernate-mapping>

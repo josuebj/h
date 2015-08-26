@@ -1,0 +1,368 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <body>
+
+        <ui:composition>
+
+
+
+            
+            
+                
+                <div class="tab-pane fade #{sesionbeans.inactive}"  id="form-HistoriaClinica"> 
+                
+                
+
+                </div>
+            
+            
+                
+<!--******************************************Antecedentes****************************************-->
+             			
+    <div class="tab-pane fade" id="form-Antecedentes">             				
+        <div class="row row-offcanvas row-offcanvas-left comment-tabs-menu">
+            <div class="col-xs-6 col-sm-3 col-md-3 sidebar-offcanvas" id="sidebar" role="navigation">
+                <p class="visible-xs">
+                    <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i>
+                    </button>
+                </p>
+                <div class="well sidebar-nav ">
+                    <ul class="nav nav-pills nav-stacked" id="menuTabs">
+                        <li>Antecedentes</li>
+                        <li class="active"><a href="#form-Fisiologico" data-toggle="tab">Fisiologicos</a></li>
+                        <li><a href="#form-Patologico" data-toggle="tab">Patologicos</a></li>
+                        <li><a href="#form-NoPatologico" data-toggle="tab">No patologicos</a></li>
+                        <li><a href="#form-Familiar" data-toggle="tab">Familiares</a></li>
+                        <li><a href="#form-Alergico" data-toggle="tab">Alergias</a></li>
+                        <li><a href="#form-Inmunizacion" data-toggle="tab">Inmunizacion</a></li>
+                        <li><a href="#form-Inmunizacion" data-toggle="tab">Clinico</a></li>
+                        <li><a href="#form-Inmunizacion" data-toggle="tab">Enfermedad de infancia</a></li>
+                        <li><a href="#form-Inmunizacion" data-toggle="tab">Habitos toxicos</a></li>
+                    </ul>
+                </div>
+            </div>
+        
+        
+            <div class="col-xs-12 col-sm-9 col-md-9">
+                <p class="pull-left visible-xs">
+                    <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Menu</button>
+                </p>
+                <div class="container-fluid" style="margin-top:20px;">
+                    <div id="menuTabContent" class="tab-content">  
+            <!--*******************************************Fisiologicos*******************************************-->
+                              
+                <div class="tab-pane fade in active" id="form-Fisiologico">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Apetito</label>
+                            <div class="col-md-10">
+                                <input class="form-control" placeholder="Apetito"></input>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Dieta</label>
+                            <div class="col-md-10">
+                                <input class="form-control" placeholder="Dieta"></input>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Sed</label>
+                            <div class="col-md-10">
+                                <input class="form-control" placeholder="Sed"></input>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Peso habitual</label>
+                            <div class="col-md-10">
+                                <input class="form-control" placeholder="Peso habitual"></input>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Diuresis</label>
+                            <div class="col-md-10">
+                                <input class="form-control" placeholder="Diuresis"></input>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                
+            <!--*******************************************END Fisiologicos*******************************************-->
+
+            <!--*******************************************Patologicos*******************************************-->
+                <div class="tab-pane fade"  id="form-Patologico">                
+                    <form class="form-horizontal">
+                        <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-7">Tuberculosis</label>
+                            <div class="col-md-5">
+                                <input type="checkbox" data-on="No" data-off="Si" checked="" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-style="ios"></input>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-7">Tuberculosis</label>
+                            <div class="col-md-5">
+                                <input type="checkbox" data-on="No" data-off="Si" checked="" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-style="ios"></input>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-7">Inf. Transmision Sexual</label>
+                            <div class="col-md-5">
+                                <input type="checkbox" data-on="No" data-off="Si" checked="" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-style="ios"></input>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-7">VIH-SIDA</label>
+                            <div class="col-md-5">
+                                <input type="checkbox" data-on="No" data-off="Si" checked="" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-style="ios"></input>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-7">Hepatitis B</label>
+                            <div class="col-md-5">
+                                <input type="checkbox" data-on="No" data-off="Si" checked="" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-style="ios"></input>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-7">Diabetes/HTA</label>
+                            <div class="col-md-5">
+                                <input type="checkbox" data-on="No" data-off="Si" checked="" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-style="ios"></input>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-7">Obesidad/sobrepeso</label>
+                            <div class="col-md-5">
+                                <input type="checkbox" data-on="No" data-off="Si" checked="" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-style="ios"></input>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-7">Infarto cardiaco</label>
+                            <div class="col-md-5">
+                                <input type="checkbox" data-on="No" data-off="Si" checked="" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-style="ios"></input>
+                            </div>
+                        </div>
+
+                        </div>
+                        <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-7">Colesterol alto</label>
+                            <div class="col-md-5">
+                                <input type="checkbox" data-on="No" data-off="Si" checked="" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-style="ios"></input>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-7">Problema renal</label>
+                            <div class="col-md-5">
+                                <input type="checkbox" data-on="No" data-off="Si" checked="" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-style="ios"></input>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-7">Glaucoma/catarata</label>
+                            <div class="col-md-5">
+                                <input type="checkbox" data-on="No" data-off="Si" checked="" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-style="ios"></input>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-7">Convulsiones</label>
+                            <div class="col-md-5">
+                                <input type="checkbox" data-on="No" data-off="Si" checked="" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-style="ios"></input>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-7">Prob. Psicologico</label>
+                            <div class="col-md-5">
+                                <input type="checkbox" data-on="No" data-off="Si" checked="" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-style="ios"></input>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-7">Depresion</label>
+                            <div class="col-md-5">
+                                <input type="checkbox" data-on="No" data-off="Si" checked="" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-style="ios"></input>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-7">Esquizofrenia</label>
+                            <div class="col-md-5">
+                                <input type="checkbox" data-on="No" data-off="Si" checked="" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-style="ios"></input>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-7">Infarto cardiaco</label>
+                            <div class="col-md-5">
+                                <input type="checkbox" data-on="No" data-off="Si" checked="" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-style="ios"></input>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    </form>
+                </div>
+	
+
+            <!--*******************************************END Patologicos*******************************************-->
+
+            <!--*******************************************No Patologicos*******************************************-->
+                <div class="tab-pane fade" id="form-Patologico">
+
+                                    CCCCCCCCCCCCCCC
+
+                </div>
+            <!--*******************************************END No Patologico*******************************************-->
+
+            <!--*******************************************Familiares*******************************************-->
+                <div class="tab-pane fade" id="form-Familiar">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                                <label class="control-label col-md-7">Tuberculosis</label>
+                                <div class="col-md-5">
+                                    <input type="checkbox" data-on="No" data-off="Si" checked="" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-style="ios"></input>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label class="control-label col-md-7">VIH-SIDA</label>
+                                <div class="col-md-5">
+                                    <input type="checkbox" data-on="No" data-off="Si" checked="" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-style="ios"></input>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label class="control-label col-md-7">Hepatitis B</label>
+                                <div class="col-md-5">
+                                    <input type="checkbox" data-on="No" data-off="Si" checked="" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-style="ios"></input>
+
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label class="control-label col-md-7">DBM/Hipertensión</label>
+                                <div class="col-md-5">
+                                    <input type="checkbox" data-on="No" data-off="Si" checked="" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-style="ios"></input>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label class="control-label col-md-7">Infarto</label>
+                                <div class="col-md-5">
+                                    <input type="checkbox" data-on="No" data-off="Si" checked="" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-style="ios"></input>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label class="control-label col-md-7">Depresion</label>
+                                <div class="col-md-5">
+                                    <input type="checkbox" data-on="No" data-off="Si" checked="" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-style="ios"></input>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label class="control-label col-md-7">Violencia Familiar</label>
+                                <div class="col-md-5">
+                                    <input type="checkbox" data-on="No" data-off="Si" checked="" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-style="ios"></input>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label class="control-label col-md-7">Cancer</label>
+                                <div class="col-md-5">
+                                    <input type="checkbox" data-on="No" data-off="Si" checked="" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-style="ios"></input>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label class="control-label col-md-7">Mordedura de animales</label>
+                                <div class="col-md-5">
+                                    <input type="checkbox" data-on="No" data-off="Si" checked="" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-style="ios"></input>
+                                </div>
+                        </div>
+                    </form>
+                </div>
+            <!--*******************************************END Familiares*******************************************-->
+
+            <!--*******************************************Alergicos*******************************************-->
+                <div class="tab-pane fade" id="form-Alergico">
+                    <div class="form-group col-md-12">
+                        <label class="control-label col-md-2">Medicamento</label>
+                        <div class="col-md-10">
+                            <input class="form-control" placeholder="Medicamento"></input>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label class="control-label col-md-2">Alimentos</label>
+                        <div class="col-md-10">
+                            <input class="form-control" placeholder="Medicamento"></input>
+
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label class="control-label col-md-2">Sustancias</label>
+                        <div class="col-md-10">
+                            <input class="form-control" placeholder="Medicamento"></input>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label class="control-label col-md-2">Picaduras</label>
+                        <div class="col-md-10">
+                            <input class="form-control" placeholder="Medicamento"></input>
+                        </div>
+                    </div>
+
+
+                </div>
+            <!--*******************************************END Alergicos*******************************************-->
+
+            <!--*******************************************Inmunizacion*******************************************-->
+                            <div class="tab-pane fade" id="form-Inmunizacion">
+             					<div class="col-md-12">
+                                                    <input class="form-control" placeholder="inmunizacion"></input>
+             					</div>
+                            </div>
+            <!--*******************************************END Inmunizacion*******************************************-->
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+
+<!--*******************************************END Antecedentes*******************************************-->
+            
+                <div class="tab-pane fade"  id="form-Consultorio">
+                    <div class="container">
+                        <div class="row">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" >Tiempo de enfermedad</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" placeholder="tiempo de enfermedad"></input>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">Forma de inicio</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" placeholder="Forma de inicio"></input>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">Sintoma inicial</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control " placeholder="Sintoma inicial"></input>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">Narracion de echos</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" placeholder="Narracion de echos"></input>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        
+            
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-ago-2015 21:41:02 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entidades.DetalleHis" table="detalle_his" catalog="hce" optimistic-lock="version">
+        <id name="idDetalleHis" type="java.lang.Integer">
+            <column name="ID_Detalle_His" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cie10" class="entidades.Cie10" fetch="select">
+            <column name="Cie10_ID_Cie10" length="10" not-null="true" />
+        </many-to-one>
+        <many-to-one name="his" class="entidades.His" fetch="select">
+            <column name="His_ID_His" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="entidades.Usuario" fetch="select">
+            <column name="Usuario_ID_Usuario" not-null="true" />
+        </many-to-one>
+        <property name="tratamiento" type="string">
+            <column name="Tratamiento" length="45" />
+        </property>
+        <property name="aparatoConprometido" type="string">
+            <column name="Aparato_Conprometido" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

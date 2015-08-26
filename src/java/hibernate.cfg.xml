@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hce?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
+    <mapping resource="entidades/GradoInstruccion.hbm.xml"/>
+    <mapping resource="entidades/PersonaTipoPersona.hbm.xml"/>
+    <mapping resource="entidades/Alergia.hbm.xml"/>
+    <mapping resource="entidades/ServicioEspecialidad.hbm.xml"/>
+    <mapping resource="entidades/TipoEmpleado.hbm.xml"/>
+    <mapping resource="entidades/Medicamento.hbm.xml"/>
+    <mapping resource="entidades/UnidadMilitar.hbm.xml"/>
+    <mapping resource="entidades/Sexualidad.hbm.xml"/>
+    <mapping resource="entidades/ExamenFisico.hbm.xml"/>
+    <mapping resource="entidades/DetalleHis.hbm.xml"/>
+    <mapping resource="entidades/Topico.hbm.xml"/>
+    <mapping resource="entidades/Rol.hbm.xml"/>
+    <mapping resource="entidades/Persona.hbm.xml"/>
+    <mapping resource="entidades/His.hbm.xml"/>
+    <mapping resource="entidades/Cie10.hbm.xml"/>
+    <mapping resource="entidades/RolServicio.hbm.xml"/>
+    <mapping resource="entidades/CentroSalud.hbm.xml"/>
+    <mapping resource="entidades/UsuarioRol.hbm.xml"/>
+    <mapping resource="entidades/Admision.hbm.xml"/>
+    <mapping resource="entidades/CentroSaludServicioEspecialdiad.hbm.xml"/>
+    <mapping resource="entidades/HistoriaClinica.hbm.xml"/>
+    <mapping resource="entidades/Recetamedica.hbm.xml"/>
+    <mapping resource="entidades/Antecedente.hbm.xml"/>
+    <mapping resource="entidades/Ubigeo.hbm.xml"/>
+    <mapping resource="entidades/Usuario.hbm.xml"/>
+    <mapping resource="entidades/TipoPersona.hbm.xml"/>
+    <mapping resource="entidades/DetalleReceta.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

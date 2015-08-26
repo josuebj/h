@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-ago-2015 21:41:02 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entidades.His" table="his" catalog="hce" optimistic-lock="version">
+        <id name="idHis" type="java.lang.Integer">
+            <column name="ID_His" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="historiaClinica" class="entidades.HistoriaClinica" fetch="select">
+            <column name="Historia_Clinica_ID_Historia_Clinica" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="entidades.Usuario" fetch="select">
+            <column name="Usuario_ID_Usuario" not-null="true" />
+        </many-to-one>
+        <property name="horaIngreso" type="time">
+            <column name="Hora_Ingreso" length="8" />
+        </property>
+        <property name="signos" type="string">
+            <column name="Signos" length="45" />
+        </property>
+        <property name="sintomas" type="string">
+            <column name="Sintomas" length="45" />
+        </property>
+        <property name="tipoDescanso" type="string">
+            <column name="Tipo_Descanso" length="45" />
+        </property>
+        <property name="diasDescanso" type="java.lang.Integer">
+            <column name="Dias_Descanso" />
+        </property>
+        <property name="urgencia" type="string">
+            <column name="Urgencia" length="2" />
+        </property>
+        <property name="evacuacion" type="string">
+            <column name="Evacuacion" length="2" />
+        </property>
+        <property name="interconsulta" type="string">
+            <column name="Interconsulta" length="45" />
+        </property>
+        <property name="examenAuxilidar" type="string">
+            <column name="Examen_Auxilidar" length="45" />
+        </property>
+        <set name="detalleHises" table="detalle_his" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="His_ID_His" not-null="true" />
+            </key>
+            <one-to-many class="entidades.DetalleHis" />
+        </set>
+        <set name="recetamedicas" table="recetamedica" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="His_ID_His" not-null="true" />
+            </key>
+            <one-to-many class="entidades.Recetamedica" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <body>
+
+        <ui:composition>
+                      
+
+                        
+            
+                <div class="tab-pane fade in active"  id="form-Admision">
+        
+                    <div class="container">
+                        <div class="row">
+            <h:form class="form-horizontal" id="Admisionform" role="form">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label col-md-7" >N Corelativo:</label>
+                        <div class="col-md-5">
+                            <input class="form-control" placeholder="0001" disabled="disabled"  value="#{validationView.text}"></input>
+                            <h:outputText value="#{validationView.text}" />
+                        </div>
+                    </div>  
+                    <div class="form-group">
+                        <label class="control-label col-md-7" >N orden:</label>
+                        <div class="col-md-5">
+                            <input class="form-control" placeholder="001" disabled="disabled" value="#{validationView.integer}"></input>
+                        </div>
+                    </div>
+
+                    
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Personal:</label>
+                        <div class="col-md-4">
+                            <select class="form-control" name="Personal">
+                                <option value="" disabled="" selected="" id="selected">Personal</option>
+                                <option>Oficial</option>
+                                <option>Tecnicos</option>
+                                <option>Sub Oficiales</option>
+                                <option>Servicio Militar</option>
+                                <option>Reenganchado</option>
+                                <option>Familiar</option>
+                                <option>Empleado Civil</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            <select class="form-control" name="Personal">
+                                <option value="" disabled="" selected="" id="selected">Rango</option>
+                                <option>Oficial</option>
+                                <option>Tecnicos</option>
+                                <option>Sub Oficiales</option>
+                                <option>Servicio Militar</option>
+                                <option>Reenganchado</option>
+                                <option>Familiar</option>
+                                <option>Empleado Civil</option>
+                            </select>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Unidad:</label>
+                        <div class="col-md-9">
+                            <input class="form-control" placeholder="Unidad"></input>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Procedencia:</label>
+                        <div class="col-md-9">
+                            <select class="form-control" name="Personal">
+                                <option value="" disabled="" selected="" id="selected">Pais</option>
+                                <option value=""  >Peru</option>
+                                <option value=""  >Otro</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        
+                        <div class="col-md-9 col-md-offset-3">
+                            <select class="form-control" name="Personal">
+                                <option value="" disabled="" selected="" id="selected">Departamento</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        
+                        <div class="col-md-9 col-md-offset-3">
+                            <select class="form-control" name="Personal">
+                                <option value="" disabled="" selected="" id="selected">Provincia</option>
+                            </select>
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                        <div class="col-md-9 col-md-offset-3">
+                            <select class="form-control" name="Personal">
+                                <option value="" disabled="" selected="" id="selected">Distrito</option>
+                            </select>
+                        </div>
+                    </div>  
+                    <div class="form-group">
+                    <label for="consultorio" class="control-label col-md-3">Especialidad</label>
+                    <div class="col-md-9">
+                        <select class="form-control" name="consultorio" id="consultorio">
+                            <option value="" disabled="" selected="" id="selected">Especialidad</option>          
+                            <option>Medicina general</option>	
+                            <option>obstetricia</option>	
+                            <option>Odontologia</option>	
+                            <option>Psicologia</option>	
+                            <option>Reabilitacion</option>	
+                        </select>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                    <label for="consultorio" class="control-label col-md-3 ">Medico</label>
+                    <div class="col-md-9">
+                      <select class="form-control" name="sonsultorio" id="consultorio">
+                            <option value="" disabled="" selected="" id="selected">Medico</option>
+                            <option>Medico 1</option>	
+                            <option>Medico 2</option>	
+                            <option>Medico 3</option>	
+                            <option>Medico 4</option>	
+                            <option>Medico 5</option>	
+
+                      </select>
+                    </div>
+                    </div>
+                    
+                        
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <div class="form-group">
+                        <label class="control-label col-md-3">fecha:</label>
+                        <div class="col-md-9">
+                                <input class="form-control" disabled="disabled" value="#{validationView.text}"></input>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Hora:</label>
+                        <div class="col-md-9" id="reloj">
+
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <p:commandButton class="col-md-6 col-md-offset-3 btn btn-primary" value="Enviar"/>
+            </h:form>
+                        </div>
+                    </div>
+                </div>
+                
+
+                           
+<nav class="animate">
+    <p><strong>Alergias</strong></p>
+    <ul>
+        <li>
+            <a href="https://twitter.com/mouse0270">@mouse0270 on twitter</a>
+        </li>
+        <li>
+            <a href="https://facebook.com/rem.mcintosh">Learn More about me on Facebook</a>
+        </li>
+        <li>
+            <a href="http://bootsnipp.com/mouse0270">Snippets</a>
+        </li>
+        <li>
+            <a href="https://github.com/mouse0270">Projects</a>
+        </li>
+        <li>
+            <a href="http://bootsnipp.com/user/snippets/www.linkedin.com/in/remcintosh/">Résumé</a>
+        </li>
+    </ul>
+    <div class="divider"></div>
+    <h4>Thanks To</h4>
+    <ul>
+        <li>
+            <a href="https://twitter.com/BootSnipp">@BootSnipp on twitter</a>
+            <a href="https://twitter.com/Svbtle">@Svbtle on twitter</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="nav-controller nav-animate">
+    <span class="[ glyphicon glyphicon-chevron-down ] controller-open"></span>
+    <span class="[ glyphicon glyphicon-remove ] controller-close"></span>
+</div>
+
+
+       </ui:composition>
+
+    </body>
+</html>

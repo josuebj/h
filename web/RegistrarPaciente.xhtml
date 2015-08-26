@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./templates/template.xhtml">
+
+            <ui:define name="content">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 col-md-12 col-md-offset-0">
+        
+        <h:form class="form-horizontal">
+
+
+            <div class="form-group ">
+                
+                <div class="col-md-9">
+                    <div class="form-group">
+                        <label class="control-label  col-md-2" for="nombre">Nombre:</label>
+                        <div class=" col-md-3">
+                            <p:inputText class="form-control" id="nombre" a:placeholder="Nombre"/>
+                        </div>
+                        <div class="  col-md-3">
+                            <p:inputText class="form-control" id="apellidop" a:placeholder="Apellido Paterno"/>
+                        </div>
+                        <div class="  col-md-3">
+                            <p:inputText class="form-control" id="apellidom" a:placeholder="Apellido Materno"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">  
+                        
+                        <label class="control-label   col-md-2 " for="dni">Genero:</label>
+                        <div class=" col-md-3">
+                            <h:selectOneMenu class="form-control">
+                                <f:selectItem itemLabel="Genero" itemValue=""/>
+                                <f:selectItem itemLabel="Masculino" itemValue="M" />
+                                <f:selectItem itemLabel="Femenino" itemValue="F" />
+                            </h:selectOneMenu>                           
+                        </div>
+                        <label class="control-label   col-md-2 " for="dni">Estado Civil:</label>
+                        <div class="  col-md-3">
+                            <h:selectOneMenu class="form-control">
+                                <f:selectItem itemLabel="Estado Civil" itemValue=""/>
+                                <f:selectItem itemLabel="Soltero" itemValue="S" />
+                                <f:selectItem itemLabel="Casado" itemValue="C" />
+                            </h:selectOneMenu>
+                            
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label   col-md-2 " for="dni">DNI:</label>
+                        <div class="  col-md-2">
+                            <p:inputText class="form-control" id="dni" a:placeholder="DNI"/>        
+                        </div>
+                        <label class="control-label  col-md-2" for="cip">Codigo Militar:</label>
+                        <div class=" col-md-3">
+                            <p:inputText  class="form-control" id="cip" a:placeholder="Codigo Militar"/>  
+                        </div>
+                    </div>
+                    <div class="form-group"> 
+                        <label class="control-label   col-md-2 " for="domicilio">Domicilio:</label>
+                        <div class="  col-md-4">
+                            <p:inputText class="form-control" id="domicilio" a:placeholder="Domicilio"/>  
+                                
+                        </div>
+                        
+                        
+                    </div>
+            <div class="form-group"> 
+                <label class="control-label   col-md-2" for="lugarnacimiento">F.nacimiento:</label>
+                <div class="col-md-5">
+			
+                	<div class="input-group date form_date col-md-12" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                            
+                            <p:inputText class="form-control"  size="16" disabled="true" onchange="CalcularEdad()" value=""/>
+                    	<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+						<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                	</div>
+					<input type="hidden" id="dtp_input2" value="" />
+                                        
+              
+                </div>
+                <label class="control-label  col-md-1" for="edad" >Edad:</label>
+                <div class=" col-md-3">
+                    <input class="form-control" id="MostrarEdad" type="text" placeholder="edad" disabled="true"/>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label  col-md-2" for="lugnac">L. nacimiento:</label>
+                <div class=" col-md-3">
+                    <h:selectOneMenu id="dep" class="form-control" value="#{ubigeoBeans.coddep}" >
+                                <f:selectItem itemLabel="Departamento"/>
+                                <f:selectItems value="#{ubigeoBeans.listarDepartamento()}" />
+                                <p:ajax update="provi"/>
+                                
+                    </h:selectOneMenu>
+                </div>
+                <div class=" col-md-3">
+                    <h:selectOneMenu id="provi" class="form-control" value="#{ubigeoBeans.codpro}">
+                                <f:selectItem itemLabel="Provincia"/>
+                                <f:selectItems value="#{ubigeoBeans.listarProvincia()}" />
+                                <p:ajax update="dis"/>
+                    </h:selectOneMenu>
+                </div>
+                <div class=" col-md-3">
+                    <h:selectOneMenu id="dis" class="form-control" value="#{ubigeoBeans.u.idUbigeo}">
+                                <f:selectItem itemLabel="Distrito"/>
+                                <f:selectItems value="#{ubigeoBeans.listarDistrito()}" />
+                                <p:ajax update="dis"/>
+                    </h:selectOneMenu>
+                </div>
+                
+                
+            </div>
+
+            <div class="form-group">
+                <label class="control-label  col-md-2" for="ocupacion">Ocupacion:</label>
+                <div class=" col-md-3">
+                    <p:inputText  class="form-control" id="ocupacion" a:placeholder="Ocupacion"/>
+                </div>
+                <label class="control-label  col-md-1" for="religion">Religion:</label>
+                <div class=" col-md-3">
+                    <p:inputText  class="form-control" id="religion"  a:placeholder="Religion"/>
+                </div>
+                <label class="control-label  col-md-3" for="grains">Grado de instruccion:</label>
+                <div class=" col-md-3">
+                    <p:inputText class="form-control" id="grains"  a:placeholder="Grado de instruccion"/> 
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label  col-md-2" for="nombre"><span class="glyphicon glyphicon-envelope"></span></label>
+                    <div class=" col-md-3">                       
+                        <p:inputText class="form-control" a:placeholder="Email" />   
+                    </div>
+                <label class="control-label  col-md-1" for="nombre"><span class="glyphicon glyphicon-phone-alt"></span></label>
+                    <div class="  col-md-2">
+                        <p:inputText class="form-control" id="telefono" a:placeholder="Telefono"/>  
+                    </div>
+                <label class="control-label  col-md-1" for="nombre"><span class="glyphicon glyphicon-phone"></span></label>        
+                    <div class="  col-md-3">
+                        <p:inputText class="form-control" id="Celular" a:placeholder="Celular"/>                               
+                    </div>
+            </div>
+                </div>
+                
+                
+                
+        <div class="col-md-3">
+            <div class="form-group">  
+                <!-- image-preview-filename input [CUT FROM HERE]-->
+                <div class="input-group image-preview">
+                    <input type="text" class="form-control image-preview-filename" disabled="disabled"></input> <!-- don't give a name === doesn't send on POST/GET -->
+                    <span class="input-group-btn">
+                    <!-- image-preview-clear button -->
+                    <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                     <span class="glyphicon glyphicon-remove"></span> Clear
+                    </button>
+                    <!-- image-preview-input -->
+                    <div class="btn btn-default image-preview-input">
+                            <span class="glyphicon glyphicon-folder-open"></span>
+                            <span class="image-preview-input-title">Browse</span>
+                            <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview" class="form-control"/> <!-- rename it -->
+                    </div>
+                    </span>
+                </div><!-- /input-group image-preview [TO HERE]--> 
+            </div>
+        </div>
+                
+                
+                
+                
+                
+            </div>
+
+            
+            
+            
+            <p:commandButton class="col-md-6 col-md-offset-3 btn btn-primary" value="Enviar"/>
+           
+
+        </h:form>
+        </div>
+    </div>
+</div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

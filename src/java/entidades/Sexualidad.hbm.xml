@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-ago-2015 21:41:02 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entidades.Sexualidad" table="sexualidad" catalog="hce" optimistic-lock="version">
+        <id name="idSexualidad" type="java.lang.Integer">
+            <column name="ID_Sexualidad" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="persona" class="entidades.Persona" fetch="select">
+            <column name="Persona_ID_Persona" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="entidades.Usuario" fetch="select">
+            <column name="Usuario_ID_Usuario" not-null="true" />
+        </many-to-one>
+        <property name="flujoVaginal" type="string">
+            <column name="Flujo_Vaginal" length="2" />
+        </property>
+        <property name="edadInicio" type="java.lang.Integer">
+            <column name="Edad_Inicio" />
+        </property>
+        <property name="parejasSex" type="java.lang.Integer">
+            <column name="Parejas_Sex" />
+        </property>
+        <property name="sexHijosvivos" type="java.lang.Integer">
+            <column name="sex_hijosvivos" />
+        </property>
+        <property name="menarquia" type="string">
+            <column name="Menarquia" length="45" />
+        </property>
+        <property name="sexUltimaregla" type="date">
+            <column name="sex_ultimaregla" length="10" />
+        </property>
+        <property name="rc" type="string">
+            <column name="RC" length="45" />
+        </property>
+        <property name="dismonorrea" type="string">
+            <column name="Dismonorrea" length="2" />
+        </property>
+        <property name="fechaReg" type="date">
+            <column name="Fecha_Reg" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

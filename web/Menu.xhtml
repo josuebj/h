@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <body>
+
+        <ui:composition template="./templates/template.xhtml">
+
+            <ui:define name="content">
+<div class="container">
+                <ui:include src="DatosPaciente.xhtml" />
+<div class="container">
+    <div class="row">
+        <div class="clod-lg-12">
+            <div class="comment-tabs">
+                <ul class="nav nav-tabs" role="tablist" id="myTab" >
+                    <c:if test="${sesionbeans.rol=='Admision' or sesionbeans.rol=='Admin'}">
+                    <li class="active"><a href="#form-Admision" role="tab" data-toggle="tab"><h5 class="reviews text-capitalize">Admision</h5></a></li>
+                    </c:if>
+                    <c:if test="${sesionbeans.rol=='Triaje' or sesionbeans.rol=='Admin'}">
+                        <li class="#{sesionbeans.active}"><a href="#form-Triaje" role="tab" data-toggle="tab"><h5 class="reviews text-capitalize">Triaje</h5></a></li>
+                    </c:if>
+                    <c:if test="${sesionbeans.rol=='Admin' or sesionbeans.rol=='Admin'}">
+                        <li class="#{sesionbeans.active}"><a href="#form-HistoriaClinica" role="tab" data-toggle="tab"><h5 class="reviews text-capitalize">Hitoria Clinica</h5></a></li>
+                    <li ><a href="#form-Antecedentes" role="tab" data-toggle="tab"><h5 class="reviews text-capitalize">Antecedentes</h5></a></li>
+                    <li ><a href="#form-Consultorio" role="tab" data-toggle="tab"><h5 class="reviews text-capitalize">Externo</h5></a></li>
+                    </c:if>
+                </ul>
+                <div class="container">
+                    <div id="myTabContent" class="tab-content">
+                    <c:if test="${sesionbeans.rol=='Admision' or sesionbeans.rol=='Admin'}">
+                        <ui:include src="Admision.xhtml" />
+                    </c:if>
+                    <c:if test="${sesionbeans.rol=='Triaje' or sesionbeans.rol=='Admin'}">
+                        <ui:include src="Triaje.xhtml" />
+                    </c:if>
+                    <c:if test="${sesionbeans.rol=='Admin' or sesionbeans.rol=='Admin'}">
+                         <ui:include src="Consultorio.xhtml" />
+                    </c:if>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

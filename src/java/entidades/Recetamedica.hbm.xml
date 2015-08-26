@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-ago-2015 21:41:02 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entidades.Recetamedica" table="recetamedica" catalog="hce" optimistic-lock="version">
+        <id name="idRecetaMedica" type="java.lang.Integer">
+            <column name="ID_Receta_Medica" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="his" class="entidades.His" fetch="select">
+            <column name="His_ID_His" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="entidades.Usuario" fetch="select">
+            <column name="Usuario_ID_Usuario" not-null="true" />
+        </many-to-one>
+        <property name="fechaReg" type="date">
+            <column name="Fecha_Reg" length="10" />
+        </property>
+        <set name="topicos" table="topico" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="RecetaMedica_ID_Receta_Medica" not-null="true" />
+            </key>
+            <one-to-many class="entidades.Topico" />
+        </set>
+        <set name="detalleRecetas" table="detalle_receta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="RecetaMedica_ID_Receta_Medica" not-null="true" />
+            </key>
+            <one-to-many class="entidades.DetalleReceta" />
+        </set>
+    </class>
+</hibernate-mapping>

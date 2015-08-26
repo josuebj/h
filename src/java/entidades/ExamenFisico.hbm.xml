@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-ago-2015 21:41:02 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entidades.ExamenFisico" table="examen_fisico" catalog="hce" optimistic-lock="version">
+        <id name="idExamenFisico" type="java.lang.Integer">
+            <column name="ID_Examen_Fisico" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="historiaClinica" class="entidades.HistoriaClinica" fetch="select">
+            <column name="Historia_Clinica_ID_Historia_Clinica" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="entidades.Usuario" fetch="select">
+            <column name="Usuario_ID_Usuario" not-null="true" />
+        </many-to-one>
+        <property name="horaIngreso" type="time">
+            <column name="Hora_Ingreso" length="8" />
+        </property>
+        <property name="pa" type="string">
+            <column name="PA" length="45" />
+        </property>
+        <property name="fc" type="string">
+            <column name="FC" length="45" />
+        </property>
+        <property name="t" type="string">
+            <column name="T" length="45" />
+        </property>
+        <property name="peso" type="string">
+            <column name="Peso" length="45" />
+        </property>
+        <property name="talla" type="string">
+            <column name="Talla" length="45" />
+        </property>
+        <property name="fr" type="string">
+            <column name="FR" length="45" />
+        </property>
+        <property name="so2" type="string">
+            <column name="SO2" length="45" />
+        </property>
+        <property name="horaSalida" type="time">
+            <column name="Hora_Salida" length="8" />
+        </property>
+        <property name="fechaReg" type="date">
+            <column name="Fecha_Reg" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

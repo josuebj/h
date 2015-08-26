@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-ago-2015 21:41:02 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entidades.Medicamento" table="medicamento" catalog="hce" optimistic-lock="version">
+        <id name="idMedicamento" type="java.lang.Integer">
+            <column name="ID_Medicamento" />
+            <generator class="identity" />
+        </id>
+        <property name="categoria" type="string">
+            <column name="Categoria" length="45" />
+        </property>
+        <property name="tipoMedicamento" type="string">
+            <column name="Tipo_Medicamento" length="45" />
+        </property>
+        <property name="medicamento" type="string">
+            <column name="Medicamento" length="45" />
+        </property>
+        <set name="alergias" table="alergia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Medicamento_ID_Medicamento" not-null="true" />
+            </key>
+            <one-to-many class="entidades.Alergia" />
+        </set>
+        <set name="detalleRecetas" table="detalle_receta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Medicamento_ID_Medicamento" not-null="true" />
+            </key>
+            <one-to-many class="entidades.DetalleReceta" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-ago-2015 21:41:02 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entidades.Usuario" table="usuario" catalog="hce" optimistic-lock="version">
+        <id name="idUsuario" type="java.lang.Integer">
+            <column name="ID_Usuario" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="persona" class="entidades.Persona" fetch="select">
+            <column name="Persona_ID_Persona" />
+        </many-to-one>
+        <many-to-one name="usuario" class="entidades.Usuario" fetch="select">
+            <column name="Usuario_ID_Usuario" />
+        </many-to-one>
+        <property name="usuario_1" type="string">
+            <column name="Usuario" length="45" />
+        </property>
+        <property name="password" type="string">
+            <column name="Password" length="45" />
+        </property>
+        <property name="fechaReg" type="date">
+            <column name="Fecha_Reg" length="10" />
+        </property>
+        <property name="estado" type="java.lang.Character">
+            <column name="Estado" length="1" />
+        </property>
+        <set name="antecedentes" table="antecedente" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Usuario_ID_Usuario" not-null="true" />
+            </key>
+            <one-to-many class="entidades.Antecedente" />
+        </set>
+        <set name="recetamedicas" table="recetamedica" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Usuario_ID_Usuario" not-null="true" />
+            </key>
+            <one-to-many class="entidades.Recetamedica" />
+        </set>
+        <set name="hises" table="his" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Usuario_ID_Usuario" not-null="true" />
+            </key>
+            <one-to-many class="entidades.His" />
+        </set>
+        <set name="sexualidads" table="sexualidad" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Usuario_ID_Usuario" not-null="true" />
+            </key>
+            <one-to-many class="entidades.Sexualidad" />
+        </set>
+        <set name="usuarioRols" table="usuario_rol" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Usuario_ID_Usuario" not-null="true" />
+            </key>
+            <one-to-many class="entidades.UsuarioRol" />
+        </set>
+        <set name="personas" table="persona" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Usuario_ID_Usuario" not-null="true" />
+            </key>
+            <one-to-many class="entidades.Persona" />
+        </set>
+        <set name="topicos" table="topico" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Usuario_ID_Usuario" not-null="true" />
+            </key>
+            <one-to-many class="entidades.Topico" />
+        </set>
+        <set name="examenFisicos" table="examen_fisico" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Usuario_ID_Usuario" not-null="true" />
+            </key>
+            <one-to-many class="entidades.ExamenFisico" />
+        </set>
+        <set name="admisions" table="admision" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Usuario_ID_Usuario" not-null="true" />
+            </key>
+            <one-to-many class="entidades.Admision" />
+        </set>
+        <set name="historiaClinicas" table="historia_clinica" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Usuario_ID_Usuario" not-null="true" />
+            </key>
+            <one-to-many class="entidades.HistoriaClinica" />
+        </set>
+        <set name="detalleHises" table="detalle_his" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Usuario_ID_Usuario" not-null="true" />
+            </key>
+            <one-to-many class="entidades.DetalleHis" />
+        </set>
+        <set name="usuarios" table="usuario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Usuario_ID_Usuario" />
+            </key>
+            <one-to-many class="entidades.Usuario" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-ago-2015 21:41:02 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entidades.UsuarioRol" table="usuario_rol" catalog="hce" optimistic-lock="version">
+        <id name="idUsuarioRol" type="java.lang.Integer">
+            <column name="ID_Usuario_Rol" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="rol" class="entidades.Rol" fetch="select">
+            <column name="Rol_ID_Rol" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="entidades.Usuario" fetch="select">
+            <column name="Usuario_ID_Usuario" not-null="true" />
+        </many-to-one>
+        <property name="fechaReg" type="timestamp">
+            <column name="Fecha_Reg" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

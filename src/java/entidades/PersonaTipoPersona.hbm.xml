@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-ago-2015 21:41:02 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entidades.PersonaTipoPersona" table="persona_tipo_persona" catalog="hce" optimistic-lock="version">
+        <id name="idPersonaTipoPersona" type="java.lang.Integer">
+            <column name="ID_Persona_Tipo_Persona" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="persona" class="entidades.Persona" fetch="select">
+            <column name="Persona_ID_Persona" not-null="true" />
+        </many-to-one>
+        <many-to-one name="servicioEspecialidad" class="entidades.ServicioEspecialidad" fetch="select">
+            <column name="Servicio_Especialidad_ID_Servicio_Especialidad" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipoEmpleado" class="entidades.TipoEmpleado" fetch="select">
+            <column name="Tipo_Empeado_ID_Tipo_Empleado" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipoPersona" class="entidades.TipoPersona" fetch="select">
+            <column name="Tipo_Persona_ID_Tipo_Persona" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

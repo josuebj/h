@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-ago-2015 21:41:02 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entidades.CentroSaludServicioEspecialdiad" table="centro_salud_servicio_especialdiad" catalog="hce" optimistic-lock="version">
+        <id name="idCentroSaludEspecialidad" type="java.lang.Integer">
+            <column name="ID_Centro_Salud_Especialidad" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="centroSalud" class="entidades.CentroSalud" fetch="select">
+            <column name="Centro_Salud_ID_Centro_Salud" not-null="true" />
+        </many-to-one>
+        <many-to-one name="servicioEspecialidad" class="entidades.ServicioEspecialidad" fetch="select">
+            <column name="Servicio_Especialidad_ID_Servicio_Especialidad" not-null="true" />
+        </many-to-one>
+        <property name="estado" type="string">
+            <column name="Estado" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

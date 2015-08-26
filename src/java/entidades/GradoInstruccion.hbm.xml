@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-ago-2015 21:41:02 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entidades.GradoInstruccion" table="grado_instruccion" catalog="hce" optimistic-lock="version">
+        <id name="idGradoInstruccion" type="java.lang.Integer">
+            <column name="ID_Grado_Instruccion" />
+            <generator class="identity" />
+        </id>
+        <property name="tipoPersonal" type="string">
+            <column name="Tipo_Personal" length="2" />
+        </property>
+        <property name="rangoMilitar" type="string">
+            <column name="Rango_Militar" length="2" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="45" />
+        </property>
+        <property name="fechaReg" type="timestamp">
+            <column name="Fecha_Reg" length="19" />
+        </property>
+        <set name="personas" table="persona" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Grado_Instruccion_ID_Grado_Instruccion" not-null="true" />
+            </key>
+            <one-to-many class="entidades.Persona" />
+        </set>
+    </class>
+</hibernate-mapping>

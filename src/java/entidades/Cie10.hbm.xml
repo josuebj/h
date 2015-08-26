@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-ago-2015 21:41:02 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entidades.Cie10" table="cie10" catalog="hce" optimistic-lock="version">
+        <id name="idCie10" type="string">
+            <column name="ID_Cie10" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="descripcion" type="string">
+            <column name="Descripcion" length="400" />
+        </property>
+        <property name="grupo" type="string">
+            <column name="Grupo" length="200" />
+        </property>
+        <set name="antecedentes" table="antecedente" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Cie10_ID_Cie10" length="10" not-null="true" />
+            </key>
+            <one-to-many class="entidades.Antecedente" />
+        </set>
+        <set name="detalleHises" table="detalle_his" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Cie10_ID_Cie10" length="10" not-null="true" />
+            </key>
+            <one-to-many class="entidades.DetalleHis" />
+        </set>
+    </class>
+</hibernate-mapping>

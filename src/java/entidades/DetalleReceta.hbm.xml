@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-ago-2015 21:41:02 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entidades.DetalleReceta" table="detalle_receta" catalog="hce" optimistic-lock="version">
+        <id name="idDetalleReceta" type="java.lang.Integer">
+            <column name="ID_Detalle_Receta" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="medicamento" class="entidades.Medicamento" fetch="select">
+            <column name="Medicamento_ID_Medicamento" not-null="true" />
+        </many-to-one>
+        <many-to-one name="recetamedica" class="entidades.Recetamedica" fetch="select">
+            <column name="RecetaMedica_ID_Receta_Medica" not-null="true" />
+        </many-to-one>
+        <property name="frecuencia" type="string">
+            <column name="Frecuencia" length="45" />
+        </property>
+        <property name="dosis" type="string">
+            <column name="Dosis" length="45" />
+        </property>
+        <property name="via" type="string">
+            <column name="Via" length="45" />
+        </property>
+        <property name="duracion" type="string">
+            <column name="Duracion" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

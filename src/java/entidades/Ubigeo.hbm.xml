@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-ago-2015 21:41:02 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entidades.Ubigeo" table="ubigeo" catalog="hce" optimistic-lock="version">
+        <id name="idUbigeo" type="java.lang.Integer">
+            <column name="ID_Ubigeo" />
+            <generator class="identity" />
+        </id>
+        <property name="codDepartamento" type="string">
+            <column name="Cod_Departamento" length="2" not-null="true" />
+        </property>
+        <property name="codProvincia" type="string">
+            <column name="Cod_Provincia" length="2" />
+        </property>
+        <property name="codDistrito" type="string">
+            <column name="Cod_Distrito" length="2" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="50" />
+        </property>
+        <set name="admisions" table="admision" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Ubigeo_ID_Ubigeo" not-null="true" />
+            </key>
+            <one-to-many class="entidades.Admision" />
+        </set>
+        <set name="personas" table="persona" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Ubigeo_ID_Ubigeo" not-null="true" />
+            </key>
+            <one-to-many class="entidades.Persona" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+       
+        
+        <h:outputStylesheet name="css/bootstrap.min.css"/>
+        <h:outputStylesheet name="css/estilo.css"/>
+        <h:outputStylesheet name="css/input-img.css"/>
+        <h:outputStylesheet name="css/bootstrap-datetimepicker.min.css"/>
+        <h:outputStylesheet name="css/search.css"/>
+        <h:outputStylesheet name="css/nav-animate.css"/>
+        <h:outputStylesheet name="css/dropdown-menu.css"/>
+        <h:outputStylesheet name="css/dropdown.css"/>
+        <h:outputStylesheet name="css/bootstrap-toggle.min.css"/>
+        <h:outputStylesheet name="css/menu-canvas.css"/>
+        
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+<header>
+		<nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+                            <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1" >
+                                            <span class="sr-only">Menu</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                    </button>
+
+                                    <a href="#" class="navbar-brand">Pentagonito</a>
+                            </div>
+                            <div class="collapse navbar-collapse" id="navbar-1">
+                                <ul class="nav navbar-nav navbar-left">
+                                    
+                                    <li><a href="../faces/Menu.xhtml">Admision</a> </li>
+                                    <li><a href="../faces/RegistrarPaciente.xhtml">Registrar paciente</a> </li>
+                                </ul>
+                                <div class="col-xs-12 col-sm-4 col-md-4 col-md-offset-1 col-lg-4">
+                                    <h:form class="navbar-form navbar-left" id="searchForm">
+                                        <div class="input-group " id="adv-search" >
+                                            
+                                            <p:inputText class="form-control" placeholder="DNI o CIP" value="#{personaBeans.persona.dni}"/>
+                                            
+                                            <div class="input-group-btn">
+                                                
+                                                <h:commandButton id="btnsearch" style="display: none" action="#{personaBeans.buscarpersona()}"></h:commandButton>
+                                                <button id="searchForm:btnsearch"  type="submit" name="searchForm:btnsearch" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                            </div>
+                                            
+                                        </div>
+                                    </h:form>
+                                </div>
+                                    <ul class="nav navbar-nav navbar-right">
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-list"> <span class="badge">14</span></span> Pasientes<span class="caret"></span></a>
+                                        <ul class="dropdown-menu dropdown-cart" role="menu">
+                                            <li>
+                                                <span class="item">
+                                                    <span class="item-left">
+                                                        <h:graphicImage library="img" name="img_paciente.jpg" width="50px" height="50px" alt=""/>
+
+                                                        <span class="item-info">
+                                                            <span>Paciente 1</span>
+                                                            <span>Consulta</span>
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="item">
+                                                    <span class="item-left">
+                                                        <h:graphicImage library="img" name="img_paciente.jpg" width="50px" height="50px" alt=""/>
+                                                        <span class="item-info">
+                                                            <span>Paciente 2</span>
+                                                            <span>Consulta</span>
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="item">
+                                                    <span class="item-left">
+                                                        <h:graphicImage library="img" name="img_paciente.jpg" width="50px" height="50px" alt=""/>
+                                                        <span class="item-info">
+                                                            <span>Paciente 3</span>
+                                                            <span>Consulta</span>
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="item">
+                                                    <span class="item-left">
+                                                        <h:graphicImage library="img" name="img_paciente.jpg" width="50px" height="50px" alt=""/>
+                                                        <span class="item-info">
+                                                            <span>Paciente 4</span>
+                                                            <span>Consulta</span>
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                            </li>
+                                          <li class="divider"></li>
+                                          <li><a class="text-center" href="">Ver mas</a></li>
+                                      </ul>
+                                    </li>
+
+                                        <li><a>#{sesionbeans.rol}</a></li>
+                                            <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="padding-top: 5px; padding-bottom: 5px;">
+                                                        <h:graphicImage library="img" name="img_doctor.jpg" width="40px" height="40px" class="img-circle" style="background-size: 32px 32px;"/>
+
+                                                    </a>
+                                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <div class="navbar-content">
+                                                <div class="row">
+                                                    <div class="col-xs-6 col-md-5">
+                                                        
+                                                        <img src="http://placehold.it/120x120" alt="Alternate Text" class="img-responsive"></img>
+                                                        <p class="text-center small">
+                                                            <a href="#">Change Photo</a></p>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <span>nombre</span>
+                                                        <p class="text-muted small">
+                                                            mail@gmail.com</p>
+                                                        <div class="divider">
+                                                        </div>
+                                                        <a href="#" class="btn btn-primary btn-sm active">View Profile</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="navbar-footer">
+                                                <div class="navbar-footer-content">
+                                                    <div class="row">
+                                                        <div class="col-xs-6">
+                                                            <a href="#" class="btn btn-default btn-sm">Change Passowrd</a>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <h:form class="navbar-form navbar-left" id="signoutForm">
+                                                            <h:commandButton id="btnsignout" style="display: none" action="#{sesionbeans.cerrarSesion()}"></h:commandButton>
+                                                            <button id="signoutForm:btnsignout"  type="sumbmit" name="signoutForm:btnsignout" class="btn btn-primary">Sign Out</button>
+                                                            </h:form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                            </li>
+                                    </ul>
+                            </div>
+			</div>
+			
+		</nav>
+  
+</header> 
+        <div id="content" class="center_content">
+            <ui:insert name="content"></ui:insert>
+        </div>
+        <div id="bottom">
+            <div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+                <div class="container">
+                    <div class="navbar-text pull-left"></div>
+                </div>
+            </div>
+
+        </div>
+
+
+    
+
+            <h:outputScript name="js/jquery.js" />
+            <h:outputScript name="js/bootstrap.min.js" />
+            <h:outputScript name="js/input-img.js" />
+            <h:outputScript name="js/bootstrap-datetimepicker.js" />
+            <h:outputScript name="js/bootstrap-datetimepicker.es.js" />
+            <h:outputScript name="js/funcion/date.js" />
+            <h:outputScript name="js/funcion/edad.js" />
+            <h:outputScript name="js/nav-animate.js" />
+            <h:outputScript name="js/bootstrap-tabcollapse.js" />
+            <script type="text/javascript">
+    	$('#myTab').tabCollapse();
+	</script>
+            <h:outputScript name="js/bootstrap-toggle.min.js" />
+            <h:outputScript name="js/menu-canvas.js" />
+            
+            
+    </h:body>
+
+</html>

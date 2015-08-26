@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-ago-2015 21:41:02 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entidades.Antecedente" table="antecedente" catalog="hce" optimistic-lock="version">
+        <id name="idAntecedente" type="java.lang.Integer">
+            <column name="ID_Antecedente" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cie10" class="entidades.Cie10" fetch="select">
+            <column name="Cie10_ID_Cie10" length="10" not-null="true" />
+        </many-to-one>
+        <many-to-one name="persona" class="entidades.Persona" fetch="select">
+            <column name="Persona_ID_Persona" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="entidades.Usuario" fetch="select">
+            <column name="Usuario_ID_Usuario" not-null="true" />
+        </many-to-one>
+        <property name="descripcion" type="string">
+            <column name="Descripcion" length="100" />
+        </property>
+        <property name="tipoAntecedente" type="string">
+            <column name="Tipo_Antecedente" length="45" />
+        </property>
+        <property name="fechaReg" type="date">
+            <column name="Fecha_Reg" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

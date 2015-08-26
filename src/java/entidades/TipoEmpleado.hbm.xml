@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-ago-2015 21:41:02 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entidades.TipoEmpleado" table="tipo_empleado" catalog="hce" optimistic-lock="version">
+        <id name="idTipoEmpleado" type="java.lang.Integer">
+            <column name="ID_Tipo_Empleado" />
+            <generator class="identity" />
+        </id>
+        <property name="tipoEmpleado" type="string">
+            <column name="Tipo_Empleado" length="45" not-null="true" />
+        </property>
+        <set name="personaTipoPersonas" table="persona_tipo_persona" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Tipo_Empeado_ID_Tipo_Empleado" not-null="true" />
+            </key>
+            <one-to-many class="entidades.PersonaTipoPersona" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,95 @@
+
+h2 {
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+}
+
+
+.animate {
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+
+.nav-controller {
+    position: fixed;
+    top: 58px;
+    right: 15px;
+    padding: 5px 6px 1px;
+    border: 5px solid rgb(51, 51, 51);
+    color: rgb(51, 51, 51);
+    border-radius: 25px;
+    font-size: 12pt;
+    cursor: pointer;
+    z-index: 300;
+}
+
+.animate ~ .nav-controller > .controller-open {
+    display: inline-block;
+}
+
+.animate ~ .nav-controller > .controller-close {
+    display: none;
+}
+.animate.focus ~ .nav-controller > .controller-open {
+    display: none;
+}
+
+.animate.focus ~ .nav-controller > .controller-close {
+    display: inline-block;
+}
+
+.animate {
+    position: fixed;
+    top: 0px;
+    right: -100%;
+    padding-top: 65px;
+    padding-bottom: 15px;
+    height: 100%;
+    max-width: 200px;
+    text-align: right;
+    background-color: rgb(255, 255, 255);
+    box-shadow: -3px 0px 3px 0px rgba(160, 160, 160, 0.30);
+    z-index: 310;    
+    overflow: auto;
+}
+
+.animate.focus {
+    right: 0px;
+}
+
+.animate > .divider {
+    content: '';
+    border-bottom: 1px solid rgb(230, 230, 230);
+    max-height: 1px;
+    overflow: hidden;
+    margin: 15px 0px;
+}
+
+.animate > h4,
+.animate > p,
+.animate > ul {
+    padding: 0px 10px;
+}
+
+.animate > h4 {
+    font-family: 'Anton', sans-serif;
+}
+
+.animate > ul {
+    list-style: none;
+}
+.animate > ul > li {
+    margin: 5px 0px;   
+}
+.animate > ul > li > a {
+    color: rgb(190, 190, 190);   
+}
+.animate > ul > li > a:hover {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: rgb(51, 51, 51);
+    text-decoration: none;
+}

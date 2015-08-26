@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-ago-2015 21:41:02 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entidades.CentroSalud" table="centro_salud" catalog="hce" optimistic-lock="version">
+        <id name="idCentroSalud" type="java.lang.Integer">
+            <column name="ID_Centro_Salud" />
+            <generator class="identity" />
+        </id>
+        <property name="centroSalud" type="string">
+            <column name="Centro_Salud" length="45" not-null="true" />
+        </property>
+        <property name="nivel" type="string">
+            <column name="Nivel" length="45" />
+        </property>
+        <set name="centroSaludServicioEspecialdiads" table="centro_salud_servicio_especialdiad" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Centro_Salud_ID_Centro_Salud" not-null="true" />
+            </key>
+            <one-to-many class="entidades.CentroSaludServicioEspecialdiad" />
+        </set>
+    </class>
+</hibernate-mapping>

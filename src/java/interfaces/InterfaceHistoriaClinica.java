@@ -13,10 +13,11 @@ import java.util.List;
  * @author Berti
  */
 public interface InterfaceHistoriaClinica {
-    public List<HistoriaClinica> listarHitoriaClinica();
-    public HistoriaClinica BuscarHistoriaClinica(HistoriaClinica hc);
-    public boolean registrarHistoriaClinica(HistoriaClinica hc);
-    public boolean editarHistoriaClinica(HistoriaClinica hc);
-    public boolean eliminarHistoriaClinica(HistoriaClinica hc);
+    public List<HistoriaClinica> listarHC();
+    public List<HistoriaClinica> listarHCS(int idhc);
+    public HistoriaClinica BuscarHC(HistoriaClinica hc);
+    public boolean registrarHC(HistoriaClinica hc);
+    public boolean editarHC(HistoriaClinica hc);
+    public boolean eliminarHC(HistoriaClinica hc);
     
 }

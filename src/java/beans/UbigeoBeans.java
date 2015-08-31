@@ -10,7 +10,8 @@ import entidades.Ubigeo;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
+
 import javax.faces.model.SelectItem;
 
 /**
@@ -18,7 +19,7 @@ import javax.faces.model.SelectItem;
  * @author Berti
  */
 @ManagedBean
-@RequestScoped
+@ViewScoped
 public class UbigeoBeans {
     private Ubigeo u;
     private String coddep;
@@ -26,7 +27,8 @@ public class UbigeoBeans {
     private List<SelectItem> departamento;
     private List<SelectItem> provincia;
     private List<SelectItem> distrito;
-    private String coddp;
+   
+    
     
     
 
@@ -59,38 +61,33 @@ public class UbigeoBeans {
     public void setCodpro(String codpro) {
         this.codpro = codpro;
     }
-    
-    
+
     public List<SelectItem> listarDepartamento(){
         departamento = new ArrayList<SelectItem>();
         UbigeoDao ubigeodao= new UbigeoDao();
-        List<Ubigeo> listubigeo = ubigeodao.listarDepartamento();
-        
-       departamento.clear();
-        
-        for(Ubigeo x:listubigeo){
-            SelectItem selectItem = new SelectItem(x.getCodDepartamento(),x.getNombre());
+        List<Ubigeo> listubigeo = ubigeodao.listarDepartamento();       
+        departamento.clear();      
+        for(Ubigeo ubigeo:listubigeo){
+            SelectItem selectItem = new SelectItem(ubigeo.getCodDepartamento(),ubigeo.getNombre());
             departamento.add(selectItem);
-        }
-        
+            
+        }       
         return departamento;      
     }
-   
-  
+    
+
     
     public List<SelectItem> listarProvincia(){
         provincia = new ArrayList<SelectItem>();
         UbigeoDao ubigeodao= new UbigeoDao();
         List<Ubigeo> listubigeop = ubigeodao.listarProvincia(coddep);
-      provincia.clear();   
-        for(Ubigeo p:listubigeop){
-            
-            SelectItem selectItem = new SelectItem(p.getCodProvincia(), p.getNombre());
+        provincia.clear();   
+        for(Ubigeo ubigeo:listubigeop){            
+            SelectItem selectItem = new SelectItem(ubigeo.getCodProvincia(), ubigeo.getNombre());
             provincia.add(selectItem);
-        }
-        
-        return provincia;
-          
+            
+        }        
+        return provincia;         
     }
     
     
@@ -99,8 +96,8 @@ public class UbigeoBeans {
         UbigeoDao ubigeodao= new UbigeoDao();
         List<Ubigeo> listubigeodis = ubigeodao.listarDistrito(coddep,codpro);      
         distrito.clear();
-        for(Ubigeo dis:listubigeodis){
-            SelectItem selectItem = new SelectItem(dis.getIdUbigeo(),dis.getNombre());
+        for(Ubigeo ubigeo:listubigeodis){
+            SelectItem selectItem = new SelectItem(ubigeo.getIdUbigeo(),ubigeo.getNombre());
             distrito.add(selectItem);
         }       
         return distrito;          

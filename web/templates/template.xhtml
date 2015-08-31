@@ -20,11 +20,12 @@
         <h:outputStylesheet name="css/dropdown.css"/>
         <h:outputStylesheet name="css/bootstrap-toggle.min.css"/>
         <h:outputStylesheet name="css/menu-canvas.css"/>
-        
-        <title>Facelets Template</title>
+        <h:outputStylesheet name="css/treeview.css"/>
+        <title>Pentagonito</title>
     </h:head>
 
     <h:body>
+        
 <header>
 		<nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
@@ -48,7 +49,7 @@
                                     <h:form class="navbar-form navbar-left" id="searchForm">
                                         <div class="input-group " id="adv-search" >
                                             
-                                            <p:inputText class="form-control" placeholder="DNI o CIP" value="#{personaBeans.persona.dni}"/>
+                                            <p:inputText class="form-control" placeholder="DNI o CIP" value="#{personaBeans.persona.numeroAdministrativo}"/>
                                             
                                             <div class="input-group-btn">
                                                 
@@ -193,6 +194,7 @@
 	</script>
             <h:outputScript name="js/bootstrap-toggle.min.js" />
             <h:outputScript name="js/menu-canvas.js" />
+            <h:outputScript name="js/treeview.js" />
             
             
     </h:body>

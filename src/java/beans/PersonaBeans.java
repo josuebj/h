@@ -22,10 +22,7 @@ import org.primefaces.context.RequestContext;
 @RequestScoped
 public class PersonaBeans {
     private Persona persona;
-    private int ndoc;
-    private String nombre;
-    private String apellidop;
-    private String apellidom;
+    private String gp;
     
     private final HttpServletRequest httpServletRequest;
     private final FacesContext facesContext;
@@ -43,36 +40,12 @@ public class PersonaBeans {
         this.persona = persona;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getGp() {
+        return gp;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellidop() {
-        return apellidop;
-    }
-
-    public void setApellidop(String apellidop) {
-        this.apellidop = apellidop;
-    }
-
-    public String getApellidom() {
-        return apellidom;
-    }
-
-    public void setApellidom(String apellidom) {
-        this.apellidom = apellidom;
-    }
-
-    public int getNdoc() {
-        return ndoc;
-    }
-
-    public void setNdoc(int ndoc) {
-        this.ndoc = ndoc;
+    public void setGp(String gp) {
+        this.gp = gp;
     }
     
     /**
@@ -81,21 +54,20 @@ public class PersonaBeans {
     
     public PersonaBeans() {
         facesContext = FacesContext.getCurrentInstance();
-    httpServletRequest = (HttpServletRequest) facesContext.getExternalContext().getRequest();
-    requestContext = RequestContext.getCurrentInstance();
+        httpServletRequest = (HttpServletRequest) facesContext.getExternalContext().getRequest();
+        requestContext = RequestContext.getCurrentInstance();
     }
    
 
 public String buscarpersona(){
+            gp="null";
     PersonaDao personadao= new PersonaDao();
     persona = personadao.Buscar(persona);
     if (persona != null) {
-            nombre= persona.getNombres();
-            apellidop=persona.getApellidoPaterno();
-            apellidom=persona.getApellidoMaterno();
-            facesMessage = new FacesMessage(FacesMessage.SEVERITY_INFO, "Busqueda Correta", ""+persona.getNombres());
-            mensaje(facesMessage);
-            
+        
+           // facesMessage = new FacesMessage(FacesMessage.SEVERITY_INFO, "Busqueda Correta", ""+persona.getNombres());
+          //  mensaje(facesMessage);
+            gp="g";
             return "Menu.xhtml";
     } else {
             

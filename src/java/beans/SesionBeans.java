@@ -5,6 +5,7 @@
  */
 package beans;
 
+import entidades.Usuario;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -19,6 +20,7 @@ import org.primefaces.context.RequestContext;
 @ManagedBean(name = "sesionbeans")
 @RequestScoped
 public class SesionBeans {
+    private Usuario usuario;
     private String usersesion;
     private String nombre;
     private String apellidos;

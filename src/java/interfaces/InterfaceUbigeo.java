@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface InterfaceUbigeo {
     public List<Ubigeo> listarDepartamento();
-    public List<Ubigeo> listarProvincia( String d);
+    public List<Ubigeo> listarProvincia( String u);
     public List<Ubigeo> listarDistrito(String d, String p);
     
 }

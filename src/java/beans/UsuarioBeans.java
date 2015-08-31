@@ -77,9 +77,7 @@ public class UsuarioBeans{
         usuario = usuarioDao.validarUser(usuario);
 
         if (usuario != null) {
-              loggedIn = true;              
-              
-              
+              loggedIn = true;                  
                 httpServletRequest.getSession().setAttribute("user", usuario.getUsuario_1());
                 httpServletRequest.getSession().setAttribute("nombre", usuario.getPersona().getNombres());
                 httpServletRequest.getSession().setAttribute("apellidos", usuario.getPersona().getApellidoPaterno()+" "+ usuario.getPersona().getApellidoMaterno());
@@ -87,8 +85,6 @@ public class UsuarioBeans{
                 UsuarioRolDao usuariorolDao= new UsuarioRolDao();
                 usuariorol = usuariorolDao.listarUsuarioRolU(usuario);
                 httpServletRequest.getSession().setAttribute("rol", usuariorol.getRol().getRol());
-                
-
               facesMessage = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", "Usuario: "+usuario.getPersona().getNombres());
               mensaje(facesMessage);
               return "Inicio.xhtml";
@@ -99,7 +95,6 @@ public class UsuarioBeans{
             return "Logueo.xhtml";
         }
 
-        
     }
      public void mensaje(FacesMessage msMessage){
         FacesContext.getCurrentInstance().addMessage(null, msMessage);

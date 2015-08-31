@@ -52,7 +52,7 @@ public class UbigeoDao implements InterfaceUbigeo{
     }
 
     @Override
-    public List<Ubigeo> listarProvincia(String d) {
+    public List<Ubigeo> listarProvincia(String cd) {
         
         Session s = HibernateUtil.getSessionFactory().openSession();
             s.beginTransaction();
@@ -68,7 +68,7 @@ public class UbigeoDao implements InterfaceUbigeo{
             */
             Criteria criteria = s.createCriteria(Ubigeo.class);
             
-            criteria.add(Restrictions.eq("codDepartamento",d))
+            criteria.add(Restrictions.eq("codDepartamento",cd))
                     .add(Restrictions.eq("codDistrito", "00"))
                     .add(Restrictions.ne("codProvincia", "00"));
                     

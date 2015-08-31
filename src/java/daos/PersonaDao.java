@@ -47,7 +47,7 @@ public class PersonaDao implements InterfacePersona{
             String sql="from Persona p where p.dni=:ndoc or p.numeroAdministrativo=:ndoc";
             org.hibernate.Query query = s.createQuery(sql);
             
-            query.setParameter("ndoc", p.getDni() );
+            query.setParameter("ndoc", p.getNumeroAdministrativo());
                    
         return (Persona) query.uniqueResult();
     }

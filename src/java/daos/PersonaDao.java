@@ -11,7 +11,9 @@ import entidades.Persona;
 import interfaces.InterfacePersona;
 import java.util.ArrayList;
 import java.util.List;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import util.HibernateUtil;
 
 /**
@@ -42,13 +44,11 @@ public class PersonaDao implements InterfacePersona{
     
     @Override
     public Persona Buscar(Persona p) {
-        Session s = HibernateUtil.getSessionFactory().getCurrentSession();
+        Session s = HibernateUtil.getSessionFactory().openSession();
             s.beginTransaction();
             String sql="from Persona p where p.dni=:ndoc or p.numeroAdministrativo=:ndoc";
-            org.hibernate.Query query = s.createQuery(sql);
-            
-            query.setParameter("ndoc", p.getNumeroAdministrativo());
-                   
+            org.hibernate.Query query = s.createQuery(sql); 
+            query.setParameter("ndoc", p.getNumeroAdministrativo());              
         return (Persona) query.uniqueResult();
     }
     
@@ -59,7 +59,6 @@ public class PersonaDao implements InterfacePersona{
         Session s= HibernateUtil.getSessionFactory().getCurrentSession();
         try{
             s.beginTransaction();
-  
             s.save(p);
             
             s.getTransaction().commit();

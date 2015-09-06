@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 25-ago-2015 21:41:02 by Hibernate Tools 4.3.1 -->
+<!-- Generated 06-sep-2015 6:46:47 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="entidades.CentroSaludServicioEspecialdiad" table="centro_salud_servicio_especialdiad" catalog="hce" optimistic-lock="version">
+    <class name="entidades.CentroSaludServicioEspecialidad" table="centro_salud_servicio_especialidad" catalog="hce" optimistic-lock="version">
         <id name="idCentroSaludEspecialidad" type="java.lang.Integer">
             <column name="ID_Centro_Salud_Especialidad" />
             <generator class="identity" />

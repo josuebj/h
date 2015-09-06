@@ -21,21 +21,15 @@
                     <div class="row">
                         <div class="col-md-4 col-md-offset-4">
 <ul id="tree2">
-<ui:repeat value="#{historiaClinicaBeans.listarHC()}" var="hc">                         
+    <ui:repeat value="#{historiaClinicaBeans.listarHC()}" var="hc">                         
         
-    <li><a href="#">#{hc.numEpisodio}</a>
+        <li><a href="#">#{hc.persona}</a>
+        
                 <ul>
-                    
-                    <ui:repeat value="#{historiaClinicaBeans.listarHCS(hc.idHistoriaClinica)}" var="hcs">
+                    <ui:repeat value="#{historiaClinicaBeans.listarHC()}" var="hcs">
                     
                         <li><a href="#">#{hcs.numEpisodio}</a>
-                            <ul>
-                                 
-                                <li>Admision</li>
-                                <li>Triaje</li>
-                                <li>Consultorio</li>
-                                 
-                            </ul>
+                            
                         </li>
                        
                     </ui:repeat>
@@ -79,28 +73,17 @@
                     <div class="form-group">
                         <label class="control-label col-md-3">Personal:</label>
                         <div class="col-md-4">
-                            <select class="form-control" name="Personal">
-                                <option value="" disabled="" selected="" id="selected">Personal</option>
-                                <option>Oficial</option>
-                                <option>Tecnicos</option>
-                                <option>Sub Oficiales</option>
-                                <option>Servicio Militar</option>
-                                <option>Reenganchado</option>
-                                <option>Familiar</option>
-                                <option>Empleado Civil</option>
-                            </select>
+                            <h:selectOneMenu id="dep" class="form-control" value="#{gradoInstruccionBeans.codtp}" >
+                                <f:selectItem itemLabel="Tipo Personal"/>
+                                <f:selectItems value="#{gradoInstruccionBeans.listarTipoPersonal()}" />
+                                <p:ajax update="rangom"/>
+                            </h:selectOneMenu>
                         </div>
                         <div class="col-md-4 col-md-offset-1">
-                            <select class="form-control" name="Personal">
-                                <option value="" disabled="" selected="" id="selected">Rango</option>
-                                <option>Oficial</option>
-                                <option>Tecnicos</option>
-                                <option>Sub Oficiales</option>
-                                <option>Servicio Militar</option>
-                                <option>Reenganchado</option>
-                                <option>Familiar</option>
-                                <option>Empleado Civil</option>
-                            </select>
+                            <h:selectOneMenu id="rangom" class="form-control" value="">
+                                <f:selectItem itemLabel="Rango Militar"/>
+                                <f:selectItems value="#{gradoInstruccionBeans.listarRangoMilitar()}" />
+                            </h:selectOneMenu>
                         </div>
                         
                     </div>
@@ -108,68 +91,71 @@
                     <div class="form-group">
                         <label class="control-label col-md-3">Unidad:</label>
                         <div class="col-md-9">
-                            <input class="form-control" placeholder="Unidad"></input>
+                            <h:selectOneMenu id="um" class="form-control" value="" >
+                                <f:selectItem itemLabel="Unidad Militar"/>
+                                <f:selectItems value="#{unidadMilitarBeans.listarServicio()}" />
+                                <p:ajax update="um"/>
+                            </h:selectOneMenu>
                             
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3">Procedencia:</label>
                         <div class="col-md-9">
-                            <select class="form-control" name="Personal">
-                                <option value="" disabled="" selected="" id="selected">Pais</option>
-                                <option value=""  >Peru</option>
-                                <option value=""  >Otro</option>
-                            </select>
+                            <h:selectOneMenu class="form-control" value="#{ubigeoBeans.coddep}" >
+                                <f:selectItem itemLabel="Departamento"/>
+                                <f:selectItems value="#{ubigeoBeans.listarDepartamento()}" />
+                                <p:ajax update="aprovi"/>
+                    </h:selectOneMenu>
                         </div>
                     </div>
                     <div class="form-group">
                         
                         <div class="col-md-9 col-md-offset-3">
-                            <select class="form-control" name="Personal">
-                                <option value="" disabled="" selected="" id="selected">Departamento</option>
-                            </select>
+                            <h:selectOneMenu id="aprovi" class="form-control" value="#{ubigeoBeans.codpro}">
+                                <f:selectItem itemLabel="Provincia"/>
+                                <f:selectItems value="#{ubigeoBeans.listarProvincia()}" />
+                                <p:ajax update="adis"/>
+                    </h:selectOneMenu>
                         </div>
                     </div>
                     <div class="form-group">
-                        
                         <div class="col-md-9 col-md-offset-3">
-                            <select class="form-control" name="Personal">
-                                <option value="" disabled="" selected="" id="selected">Provincia</option>
-                            </select>
+                        <h:selectOneMenu id="adis" class="form-control" value="#{personaBeans.persona.ubigeo}">
+                                <f:selectItem itemLabel="Distrito"/>
+                                <f:selectItems value="#{ubigeoBeans.listarDistrito()}" />
+                                <p:ajax update="adis"/>
+                    </h:selectOneMenu>
                         </div>
                     </div> 
+                     
                     <div class="form-group">
-                        <div class="col-md-9 col-md-offset-3">
-                            <select class="form-control" name="Personal">
-                                <option value="" disabled="" selected="" id="selected">Distrito</option>
-                            </select>
-                        </div>
-                    </div>  
+                    <label for="consultorio" class="control-label col-md-3">Servicio</label>
+                    <div class="col-md-9">
+                        <h:selectOneMenu id="ser" class="form-control" value="#{servicioEspecialidadBeans.cods}" >
+                                <f:selectItem itemLabel="Servicio"/>
+                                <f:selectItems value="#{servicioEspecialidadBeans.listarServicio()}" />
+                                <p:ajax update="esp"/>
+                        </h:selectOneMenu>
+                    </div>
+                    </div>
                     <div class="form-group">
                     <label for="consultorio" class="control-label col-md-3">Especialidad</label>
                     <div class="col-md-9">
-                        <select class="form-control" name="consultorio" id="consultorio">
-                            <option value="" disabled="" selected="" id="selected">Especialidad</option>          
-                            <option>Medicina general</option>	
-                            <option>obstetricia</option>	
-                            <option>Odontologia</option>	
-                            <option>Psicologia</option>	
-                            <option>Reabilitacion</option>	
-                        </select>
+                        <h:selectOneMenu id="esp" class="form-control" value="#{personaTipoPersonaBeans.idse}" >
+                                <f:selectItem itemLabel="Especialidad"/>
+                                <f:selectItems value="#{servicioEspecialidadBeans.listarEspecialidad()}" />
+                                <p:ajax update="medico"/>
+                        </h:selectOneMenu>
                     </div>
                     </div>
                     <div class="form-group">
                     <label for="consultorio" class="control-label col-md-3 ">Medico</label>
                     <div class="col-md-9">
-                      <select class="form-control" name="sonsultorio" id="consultorio">
-                            <option value="" disabled="" selected="" id="selected">Medico</option>
-                            <option>Medico 1</option>	
-                            <option>Medico 2</option>	
-                            <option>Medico 3</option>	
-                            <option>Medico 4</option>	
-                            <option>Medico 5</option>	
-
-                      </select>
+                      <h:selectOneMenu id="medico" class="form-control" value="" >
+                                <f:selectItem itemLabel="Especialidad"/>
+                                <f:selectItems value="#{personaTipoPersonaBeans.listarMedico()}"/>
+                        </h:selectOneMenu>
                     </div>
                     </div>
                     

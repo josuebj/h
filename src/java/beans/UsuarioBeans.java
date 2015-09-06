@@ -85,6 +85,7 @@ public class UsuarioBeans{
                 UsuarioRolDao usuariorolDao= new UsuarioRolDao();
                 usuariorol = usuariorolDao.listarUsuarioRolU(usuario);
                 httpServletRequest.getSession().setAttribute("rol", usuariorol.getRol().getRol());
+                
               facesMessage = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", "Usuario: "+usuario.getPersona().getNombres());
               mensaje(facesMessage);
               return "Inicio.xhtml";

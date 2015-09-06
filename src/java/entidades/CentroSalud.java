@@ -1,5 +1,5 @@
 package entidades;
-// Generated 25-ago-2015 21:41:00 by Hibernate Tools 4.3.1
+// Generated 06-sep-2015 6:46:45 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -14,7 +14,7 @@ public class CentroSalud  implements java.io.Serializable {
      private Integer idCentroSalud;
      private String centroSalud;
      private String nivel;
-     private Set<CentroSaludServicioEspecialdiad> centroSaludServicioEspecialdiads = new HashSet<CentroSaludServicioEspecialdiad>(0);
+     private Set<CentroSaludServicioEspecialidad> centroSaludServicioEspecialidads = new HashSet<CentroSaludServicioEspecialidad>(0);
 
     public CentroSalud() {
     }
@@ -23,10 +23,10 @@ public class CentroSalud  implements java.io.Serializable {
     public CentroSalud(String centroSalud) {
         this.centroSalud = centroSalud;
     }
-    public CentroSalud(String centroSalud, String nivel, Set<CentroSaludServicioEspecialdiad> centroSaludServicioEspecialdiads) {
+    public CentroSalud(String centroSalud, String nivel, Set<CentroSaludServicioEspecialidad> centroSaludServicioEspecialidads) {
        this.centroSalud = centroSalud;
        this.nivel = nivel;
-       this.centroSaludServicioEspecialdiads = centroSaludServicioEspecialdiads;
+       this.centroSaludServicioEspecialidads = centroSaludServicioEspecialidads;
     }
    
     public Integer getIdCentroSalud() {
@@ -50,12 +50,12 @@ public class CentroSalud  implements java.io.Serializable {
     public void setNivel(String nivel) {
         this.nivel = nivel;
     }
-    public Set<CentroSaludServicioEspecialdiad> getCentroSaludServicioEspecialdiads() {
-        return this.centroSaludServicioEspecialdiads;
+    public Set<CentroSaludServicioEspecialidad> getCentroSaludServicioEspecialidads() {
+        return this.centroSaludServicioEspecialidads;
     }
     
-    public void setCentroSaludServicioEspecialdiads(Set<CentroSaludServicioEspecialdiad> centroSaludServicioEspecialdiads) {
-        this.centroSaludServicioEspecialdiads = centroSaludServicioEspecialdiads;
+    public void setCentroSaludServicioEspecialidads(Set<CentroSaludServicioEspecialidad> centroSaludServicioEspecialidads) {
+        this.centroSaludServicioEspecialidads = centroSaludServicioEspecialidads;
     }
 
 

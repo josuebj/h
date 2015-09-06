@@ -79,7 +79,6 @@ public class UbigeoDao implements InterfaceUbigeo{
 
     @Override
     public List<Ubigeo> listarDistrito(String d, String p) {
-        
         Session s = HibernateUtil.getSessionFactory().openSession();
             s.beginTransaction();
             Criteria criteria = s.createCriteria(Ubigeo.class);

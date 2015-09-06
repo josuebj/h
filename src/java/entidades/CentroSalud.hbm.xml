@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 25-ago-2015 21:41:02 by Hibernate Tools 4.3.1 -->
+<!-- Generated 06-sep-2015 6:46:47 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="entidades.CentroSalud" table="centro_salud" catalog="hce" optimistic-lock="version">
         <id name="idCentroSalud" type="java.lang.Integer">
@@ -14,11 +14,11 @@
         <property name="nivel" type="string">
             <column name="Nivel" length="45" />
         </property>
-        <set name="centroSaludServicioEspecialdiads" table="centro_salud_servicio_especialdiad" inverse="true" lazy="true" fetch="select">
+        <set name="centroSaludServicioEspecialidads" table="centro_salud_servicio_especialidad" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="Centro_Salud_ID_Centro_Salud" not-null="true" />
             </key>
-            <one-to-many class="entidades.CentroSaludServicioEspecialdiad" />
+            <one-to-many class="entidades.CentroSaludServicioEspecialidad" />
         </set>
     </class>
 </hibernate-mapping>

@@ -1,5 +1,5 @@
 package entidades;
-// Generated 25-ago-2015 21:41:00 by Hibernate Tools 4.3.1
+// Generated 06-sep-2015 6:46:45 by Hibernate Tools 4.3.1
 
 
 
@@ -18,6 +18,11 @@ public class PersonaTipoPersona  implements java.io.Serializable {
     public PersonaTipoPersona() {
     }
 
+	
+    public PersonaTipoPersona(Persona persona, TipoPersona tipoPersona) {
+        this.persona = persona;
+        this.tipoPersona = tipoPersona;
+    }
     public PersonaTipoPersona(Persona persona, ServicioEspecialidad servicioEspecialidad, TipoEmpleado tipoEmpleado, TipoPersona tipoPersona) {
        this.persona = persona;
        this.servicioEspecialidad = servicioEspecialidad;

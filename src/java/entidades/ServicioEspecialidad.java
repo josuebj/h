@@ -1,5 +1,5 @@
 package entidades;
-// Generated 25-ago-2015 21:41:00 by Hibernate Tools 4.3.1
+// Generated 06-sep-2015 6:46:45 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -13,20 +13,20 @@ public class ServicioEspecialidad  implements java.io.Serializable {
 
      private Integer idServicioEspecialidad;
      private Integer codServicio;
-     private Integer codEpsecialidad;
+     private Integer codEspecialidad;
      private String nombre;
-     private Set<CentroSaludServicioEspecialdiad> centroSaludServicioEspecialdiads = new HashSet<CentroSaludServicioEspecialdiad>(0);
+     private Set<CentroSaludServicioEspecialidad> centroSaludServicioEspecialidads = new HashSet<CentroSaludServicioEspecialidad>(0);
      private Set<PersonaTipoPersona> personaTipoPersonas = new HashSet<PersonaTipoPersona>(0);
      private Set<RolServicio> rolServicios = new HashSet<RolServicio>(0);
 
     public ServicioEspecialidad() {
     }
 
-    public ServicioEspecialidad(Integer codServicio, Integer codEpsecialidad, String nombre, Set<CentroSaludServicioEspecialdiad> centroSaludServicioEspecialdiads, Set<PersonaTipoPersona> personaTipoPersonas, Set<RolServicio> rolServicios) {
+    public ServicioEspecialidad(Integer codServicio, Integer codEspecialidad, String nombre, Set<CentroSaludServicioEspecialidad> centroSaludServicioEspecialidads, Set<PersonaTipoPersona> personaTipoPersonas, Set<RolServicio> rolServicios) {
        this.codServicio = codServicio;
-       this.codEpsecialidad = codEpsecialidad;
+       this.codEspecialidad = codEspecialidad;
        this.nombre = nombre;
-       this.centroSaludServicioEspecialdiads = centroSaludServicioEspecialdiads;
+       this.centroSaludServicioEspecialidads = centroSaludServicioEspecialidads;
        this.personaTipoPersonas = personaTipoPersonas;
        this.rolServicios = rolServicios;
     }
@@ -45,12 +45,12 @@ public class ServicioEspecialidad  implements java.io.Serializable {
     public void setCodServicio(Integer codServicio) {
         this.codServicio = codServicio;
     }
-    public Integer getCodEpsecialidad() {
-        return this.codEpsecialidad;
+    public Integer getCodEspecialidad() {
+        return this.codEspecialidad;
     }
     
-    public void setCodEpsecialidad(Integer codEpsecialidad) {
-        this.codEpsecialidad = codEpsecialidad;
+    public void setCodEspecialidad(Integer codEspecialidad) {
+        this.codEspecialidad = codEspecialidad;
     }
     public String getNombre() {
         return this.nombre;
@@ -59,12 +59,12 @@ public class ServicioEspecialidad  implements java.io.Serializable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public Set<CentroSaludServicioEspecialdiad> getCentroSaludServicioEspecialdiads() {
-        return this.centroSaludServicioEspecialdiads;
+    public Set<CentroSaludServicioEspecialidad> getCentroSaludServicioEspecialidads() {
+        return this.centroSaludServicioEspecialidads;
     }
     
-    public void setCentroSaludServicioEspecialdiads(Set<CentroSaludServicioEspecialdiad> centroSaludServicioEspecialdiads) {
-        this.centroSaludServicioEspecialdiads = centroSaludServicioEspecialdiads;
+    public void setCentroSaludServicioEspecialidads(Set<CentroSaludServicioEspecialidad> centroSaludServicioEspecialidads) {
+        this.centroSaludServicioEspecialidads = centroSaludServicioEspecialidads;
     }
     public Set<PersonaTipoPersona> getPersonaTipoPersonas() {
         return this.personaTipoPersonas;

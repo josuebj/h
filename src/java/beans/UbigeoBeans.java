@@ -7,7 +7,9 @@ package beans;
 
 import daos.UbigeoDao;
 import entidades.Ubigeo;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -20,14 +22,14 @@ import javax.faces.model.SelectItem;
  */
 @ManagedBean
 @ViewScoped
-public class UbigeoBeans {
+public class UbigeoBeans implements Serializable{
     private Ubigeo u;
     private String coddep;
     private String codpro;
     private List<SelectItem> departamento;
     private List<SelectItem> provincia;
     private List<SelectItem> distrito;
-   
+    private String[] codproa;
     
     
     
@@ -44,22 +46,6 @@ public class UbigeoBeans {
 
     public void setU(Ubigeo u) {
         this.u = u;
-    }
-
-    public String getCoddep() {
-        return coddep;
-    }
-
-    public void setCoddep(String coddep) {
-        this.coddep = coddep;
-    }
-
-    public String getCodpro() {
-        return codpro;
-    }
-
-    public void setCodpro(String codpro) {
-        this.codpro = codpro;
     }
 
     public List<SelectItem> listarDepartamento(){
@@ -94,6 +80,7 @@ public class UbigeoBeans {
     public List<SelectItem> listarDistrito(){
         distrito = new ArrayList<SelectItem>();
         UbigeoDao ubigeodao= new UbigeoDao();
+ 
         List<Ubigeo> listubigeodis = ubigeodao.listarDistrito(coddep,codpro);      
         distrito.clear();
         for(Ubigeo ubigeo:listubigeodis){
@@ -101,6 +88,23 @@ public class UbigeoBeans {
             distrito.add(selectItem);
         }       
         return distrito;          
+    }
+    
+
+    public String getCoddep() {
+        return coddep;
+    }
+
+    public void setCoddep(String coddep) {
+        this.coddep = coddep;
+    }
+
+    public String getCodpro() {
+        return codpro;
+    }
+
+    public void setCodpro(String codpro) {
+        this.codpro = codpro;
     }
     
     

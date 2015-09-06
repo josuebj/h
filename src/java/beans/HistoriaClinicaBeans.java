@@ -29,7 +29,7 @@ import javax.faces.model.SelectItem;
  */
 @ManagedBean
 @ViewScoped
-public class HistoriaClinicaBeans implements Serializable{
+public class HistoriaClinicaBeans{
     
     private HistoriaClinica historiaclinica;
     private int idhc;
@@ -58,7 +58,9 @@ public class HistoriaClinicaBeans implements Serializable{
     public List<HistoriaClinica> listarHC(){
         hc = new ArrayList<HistoriaClinica>();
         HistoriaClinicaDao hcdao=new HistoriaClinicaDao();
+        
         hc = hcdao.listarHC();
+        
         return hc;
     }
     public List<HistoriaClinica> listarHCS(int id){

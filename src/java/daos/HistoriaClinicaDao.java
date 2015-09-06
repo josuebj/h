@@ -48,8 +48,6 @@ public class HistoriaClinicaDao implements InterfaceHistoriaClinica{
             return criterias.list();
     }
     
-
-
     @Override
     public HistoriaClinica BuscarHC(HistoriaClinica hc) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

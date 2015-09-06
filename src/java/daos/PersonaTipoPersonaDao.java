@@ -7,6 +7,7 @@ package daos;
 
 import entidades.PersonaTipoPersona;
 import interfaces.InterfacePersonaTipoPersona;
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -23,9 +24,12 @@ public class PersonaTipoPersonaDao implements InterfacePersonaTipoPersona{
     public List<PersonaTipoPersona> Medico(int idse) {
         Session s = HibernateUtil.getSessionFactory().openSession();
             s.beginTransaction();
-            Criteria criteria = s.createCriteria(PersonaTipoPersona.class);
-            criteria.add(Restrictions.eq("ServicioEspecialidad",idse));     
-        return criteria.list();
+        List<PersonaTipoPersona> listap= new ArrayList<>();
+            String sql="from PersonaTipoPersona p where p.servicioEspecialidad=:id";
+            org.hibernate.Query query=s.createQuery(sql);          
+            query.setParameter("id",idse);           
+            listap=query.list();
+            return listap;
     }
     
 }

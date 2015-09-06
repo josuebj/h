@@ -27,6 +27,7 @@ public class SesionBeans {
     private String rol;
      private String active;
      private String inactive;
+     private String id;
      
     private final HttpServletRequest httpServletRequest;
     private final FacesContext facesContext;
@@ -97,6 +98,7 @@ public class SesionBeans {
             nombre = httpServletRequest.getSession().getAttribute("nombre").toString();
             apellidos=httpServletRequest.getSession().getAttribute("apellidos").toString();
             rol=httpServletRequest.getSession().getAttribute("rol").toString();
+            id=httpServletRequest.getSession().getAttribute("iduser").toString();
             if(rol=="Admin"){
              active ="active";
              inactive="in active";
@@ -116,5 +118,13 @@ public class SesionBeans {
         FacesContext.getCurrentInstance().addMessage(null, msMessage);
         requestContext.addCallbackParam("loggedIn", loggedIn);     
      }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
     
 }

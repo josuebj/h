@@ -51,7 +51,7 @@ public class HistoriaClinicaBeans{
         HistoriaClinicaDao hcdao= new HistoriaClinicaDao();
         hcdao.registrarHC(historiaclinica);
         historiaclinica = new HistoriaClinica();
-        return "ggg";
+        return "Menu.xhtml";
         
     }
     

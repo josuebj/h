@@ -38,8 +38,7 @@ public class PersonaTipoPersonaBeans {
         medico.clear();      
         for(PersonaTipoPersona ptp:listptp){
             SelectItem selectItem = new SelectItem(ptp.getPersona(),ptp.getPersona().getNombres());
-            medico.add(selectItem);
-            
+            medico.add(selectItem);    
         }       
         return medico;      
     }

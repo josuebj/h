@@ -6,6 +6,8 @@
 package daos;
 
 import entidades.HistoriaClinica;
+import factory.ConexionBD;
+import factory.FactoryConnectionDB;
 import interfaces.InterfaceHistoriaClinica;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +22,7 @@ import util.HibernateUtil;
  * @author Berti
  */
 public class HistoriaClinicaDao implements InterfaceHistoriaClinica{
-
+    ConexionBD conn;
     @Override
     public List<HistoriaClinica> listarHC() {
             Session s = HibernateUtil.getSessionFactory().openSession();
@@ -67,6 +69,24 @@ public class HistoriaClinicaDao implements InterfaceHistoriaClinica{
             s.getTransaction().rollback();
         }finally{
             
+        }
+        return b;
+    }
+    public boolean registrarHC2(HistoriaClinica hc) {
+        this.conn = FactoryConnectionDB.open(FactoryConnectionDB.MYSQL);
+        boolean b= false;
+        try {
+//            System.out.println(departamentp.getId()+", "+departamentp.getProv()+", "+departamentp.getDir()+", "+departamentp.getRuc()+", "+departamentp.getTel()+", "+departamentp.getEst());
+                StringBuilder sql = new StringBuilder();
+                sql.append("INSERT INTO Historia_Clinica(iddepartamento, departamento, Centro_Costos, Status) VALUES(").append("NULL");
+                sql.append(", '").append(departamento.getDpto());
+                sql.append("', ").append(departamento.getCostos());
+                sql.append(", ").append(departamento.getStatus()).append(")");
+                //String sql1 = "INSERT INTO Proveedor(iddepartamentp)VALUES(10)";
+                this.conn.execute(sql.toString());
+                b = true;
+        } catch (Exception e) {
+            this.conn.close();
         }
         return b;
     }

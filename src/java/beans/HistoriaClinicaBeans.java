@@ -8,6 +8,8 @@ package beans;
 
 import daos.HistoriaClinicaDao;
 import entidades.HistoriaClinica;
+import entidades.Persona;
+import entidades.Usuario;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -32,11 +34,29 @@ import javax.faces.model.SelectItem;
 public class HistoriaClinicaBeans{
     
     private HistoriaClinica historiaclinica;
+    private Usuario usuario;
+    private Persona persona;
     private int idhc;
     private String ok;
+
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
     private List<HistoriaClinica> hc;
     private List<HistoriaClinica> hcs;
-    private String idse;
+    private int idse;
     private String idpersona;
     
     
@@ -57,10 +77,11 @@ public class HistoriaClinicaBeans{
         facesContext = FacesContext.getCurrentInstance();
         httpServletRequest = (HttpServletRequest) facesContext.getExternalContext().getRequest();
         requestContext = RequestContext.getCurrentInstance();
-        idse=httpServletRequest.getSession().getAttribute("iduser").toString();
-        
-        historiaclinica.setUsuario(us);
-        historiaclinica.setPersona(idpersona);
+        idse=Integer.parseInt(httpServletRequest.getSession().getAttribute("iduser").toString());
+        usuario.setIdUsuario(idse);
+        persona.setIdPersona(Integer.parseInt(idpersona));
+        historiaclinica.setUsuario(usuario);
+        historiaclinica.setPersona(persona);
         HistoriaClinicaDao hcdao= new HistoriaClinicaDao();
         
         hcdao.registrarHC(historiaclinica);
@@ -110,11 +131,11 @@ public class HistoriaClinicaBeans{
         this.historiaclinica = historiaclinica;
     }
 
-    public String getIdse() {
+    public int getIdse() {
         return idse;
     }
 
-    public void setIdse(String idse) {
+    public void setIdse(int idse) {
         this.idse = idse;
     }
 

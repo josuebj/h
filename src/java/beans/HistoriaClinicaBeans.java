@@ -36,8 +36,14 @@ public class HistoriaClinicaBeans{
     private String ok;
     private List<HistoriaClinica> hc;
     private List<HistoriaClinica> hcs;
+    private String idse;
+    private String idpersona;
     
     
+    private HttpServletRequest httpServletRequest;
+    private FacesContext facesContext;
+    private FacesMessage facesMessage;
+    private RequestContext requestContext;
     /**
      * Creates a new instance of HistoriaClinicaBeans
      */
@@ -48,9 +54,18 @@ public class HistoriaClinicaBeans{
     }
     
     public String registrarHC(){
+        facesContext = FacesContext.getCurrentInstance();
+        httpServletRequest = (HttpServletRequest) facesContext.getExternalContext().getRequest();
+        requestContext = RequestContext.getCurrentInstance();
+        idse=httpServletRequest.getSession().getAttribute("iduser").toString();
+        
+        historiaclinica.setUsuario(us);
+        historiaclinica.setPersona(idpersona);
         HistoriaClinicaDao hcdao= new HistoriaClinicaDao();
+        
         hcdao.registrarHC(historiaclinica);
         historiaclinica = new HistoriaClinica();
+        
         return "Menu.xhtml";
         
     }
@@ -93,6 +108,22 @@ public class HistoriaClinicaBeans{
 
     public void setHistoriaclinica(HistoriaClinica historiaclinica) {
         this.historiaclinica = historiaclinica;
+    }
+
+    public String getIdse() {
+        return idse;
+    }
+
+    public void setIdse(String idse) {
+        this.idse = idse;
+    }
+
+    public String getIdpersona() {
+        return idpersona;
+    }
+
+    public void setIdpersona(String idpersona) {
+        this.idpersona = idpersona;
     }
 
 

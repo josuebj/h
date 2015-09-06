@@ -75,7 +75,7 @@ public class HistoriaClinicaDao implements InterfaceHistoriaClinica{
     public boolean registrarHC2(HistoriaClinica hc) {
         this.conn = FactoryConnectionDB.open(FactoryConnectionDB.MYSQL);
         boolean b= false;
-        try {
+      /*  try {
 //            System.out.println(departamentp.getId()+", "+departamentp.getProv()+", "+departamentp.getDir()+", "+departamentp.getRuc()+", "+departamentp.getTel()+", "+departamentp.getEst());
                 StringBuilder sql = new StringBuilder();
                 sql.append("INSERT INTO Historia_Clinica(iddepartamento, departamento, Centro_Costos, Status) VALUES(").append("NULL");
@@ -87,7 +87,7 @@ public class HistoriaClinicaDao implements InterfaceHistoriaClinica{
                 b = true;
         } catch (Exception e) {
             this.conn.close();
-        }
+        }*/
         return b;
     }
 

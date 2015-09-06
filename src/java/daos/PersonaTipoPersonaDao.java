@@ -24,7 +24,7 @@ public class PersonaTipoPersonaDao implements InterfacePersonaTipoPersona{
         Session s = HibernateUtil.getSessionFactory().openSession();
             s.beginTransaction();
             Criteria criteria = s.createCriteria(PersonaTipoPersona.class);
-            criteria.add(Restrictions.eq("ServicioEspecialidad",idse));     
+            criteria.add(Restrictions.eq("servicioEspecialidad",idse));     
         return criteria.list();
     }
     

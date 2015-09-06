@@ -24,12 +24,14 @@ public class PersonaTipoPersonaDao implements InterfacePersonaTipoPersona{
     public List<PersonaTipoPersona> Medico(int idse) {
         Session s = HibernateUtil.getSessionFactory().openSession();
             s.beginTransaction();
+
         List<PersonaTipoPersona> listap= new ArrayList<>();
             String sql="from PersonaTipoPersona p where p.servicioEspecialidad=:id";
             org.hibernate.Query query=s.createQuery(sql);          
             query.setParameter("id",idse);           
             listap=query.list();
             return listap;
+            
     }
     
 }

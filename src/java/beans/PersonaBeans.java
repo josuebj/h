@@ -21,7 +21,7 @@ import org.primefaces.context.RequestContext;
 @ManagedBean
 @RequestScoped
 public class PersonaBeans {
-    private Persona persona;
+    Persona persona;
     private String gp;
     
     private final HttpServletRequest httpServletRequest;

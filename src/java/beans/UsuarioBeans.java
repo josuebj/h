@@ -32,7 +32,7 @@ import entidades.UsuarioRol;
 @RequestScoped
 public class UsuarioBeans{
     
-    private Usuario usuario;
+    Usuario usuario;
     private UsuarioRol usuariorol;
     
     

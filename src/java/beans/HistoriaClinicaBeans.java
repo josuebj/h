@@ -7,9 +7,11 @@ package beans;
 
 
 import daos.HistoriaClinicaDao;
+import entidades.Admision;
 import entidades.HistoriaClinica;
 import entidades.Persona;
 import entidades.Usuario;
+import java.awt.event.ActionEvent;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -22,7 +24,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.faces.component.UIComponent;
 import javax.faces.model.SelectItem;
 
 /**
@@ -34,36 +38,21 @@ import javax.faces.model.SelectItem;
 public class HistoriaClinicaBeans{
     
     private HistoriaClinica historiaclinica;
-    private Usuario usuario;
-    private Persona persona;
+    
+    
     private int idhc;
     private String ok;
-
-    public Persona getPersona() {
-        return persona;
-    }
-
-    public void setPersona(Persona persona) {
-        this.persona = persona;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
+    private Persona persona;
+    private Usuario usuario;
+    private String idpersona;
+    private String idse;
+        
     private List<HistoriaClinica> hc;
     private List<HistoriaClinica> hcs;
-    private int idse;
-    private String idpersona;
     
     
-    private HttpServletRequest httpServletRequest;
-    private FacesContext facesContext;
-    private FacesMessage facesMessage;
-    private RequestContext requestContext;
+    
+    
     /**
      * Creates a new instance of HistoriaClinicaBeans
      */
@@ -74,14 +63,14 @@ public class HistoriaClinicaBeans{
     }
     
     public String registrarHC(){
-        facesContext = FacesContext.getCurrentInstance();
-        httpServletRequest = (HttpServletRequest) facesContext.getExternalContext().getRequest();
-        requestContext = RequestContext.getCurrentInstance();
-        idse=Integer.parseInt(httpServletRequest.getSession().getAttribute("iduser").toString());
-        usuario.setIdUsuario(idse);
+        UIComponent component = UIComponent.getCurrentComponent(FacesContext.getCurrentInstance());
+        idpersona = (String) component.getAttributes().get("idpersona");
         persona.setIdPersona(Integer.parseInt(idpersona));
-        historiaclinica.setUsuario(usuario);
+        idse = (String) component.getAttributes().get("idse");
+        usuario.setIdUsuario(Integer.parseInt(idse));
+        
         historiaclinica.setPersona(persona);
+        historiaclinica.setUsuario(usuario);
         HistoriaClinicaDao hcdao= new HistoriaClinicaDao();
         
         hcdao.registrarHC(historiaclinica);
@@ -131,12 +120,20 @@ public class HistoriaClinicaBeans{
         this.historiaclinica = historiaclinica;
     }
 
-    public int getIdse() {
-        return idse;
+    public Persona getPersona() {
+        return persona;
     }
 
-    public void setIdse(int idse) {
-        this.idse = idse;
+    public void setPersona(Persona persona) {
+        this.persona = persona;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public String getIdpersona() {
@@ -146,6 +143,18 @@ public class HistoriaClinicaBeans{
     public void setIdpersona(String idpersona) {
         this.idpersona = idpersona;
     }
+
+    public String getIdse() {
+        return idse;
+    }
+
+    public void setIdse(String idse) {
+        this.idse = idse;
+    }
+
+    
+
+   
 
 
       

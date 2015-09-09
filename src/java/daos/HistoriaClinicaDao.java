@@ -52,7 +52,12 @@ public class HistoriaClinicaDao implements InterfaceHistoriaClinica{
     
     @Override
     public HistoriaClinica BuscarHC(HistoriaClinica hc) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Session s = HibernateUtil.getSessionFactory().openSession();
+            s.beginTransaction();
+            String sql="from HistoriaClinica hc where hc.idHistoriaClinica=:idhc";
+            org.hibernate.Query query = s.createQuery(sql); 
+            query.setParameter("idhc", hc.getIdHistoriaClinica());              
+        return (HistoriaClinica) query.uniqueResult();
     }
 
     @Override
@@ -99,6 +104,16 @@ public class HistoriaClinicaDao implements InterfaceHistoriaClinica{
     @Override
     public boolean eliminarHC(HistoriaClinica hc) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int NumEpidosio(int idp) {
+        Session s = HibernateUtil.getSessionFactory().openSession();
+            s.beginTransaction();
+            String sql="select max(hc.numEpisodio) from HistoriaClinica hc where hc.persona=:idp";
+            org.hibernate.Query query = s.createQuery(sql); 
+            query.setParameter("idp", idp);              
+        return (int) query.uniqueResult();
     }
 
     

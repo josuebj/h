@@ -11,23 +11,16 @@ import entidades.Admision;
 import entidades.HistoriaClinica;
 import entidades.Persona;
 import entidades.Usuario;
-import java.awt.event.ActionEvent;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletRequest;
-import org.primefaces.context.RequestContext;
 
-import java.io.Serializable;
+
+
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.component.UIComponent;
-import javax.faces.model.SelectItem;
+import javax.faces.context.FacesContext;
+
 
 /**
  *
@@ -44,9 +37,9 @@ public class HistoriaClinicaBeans{
     private String ok;
     private Persona persona;
     private Usuario usuario;
-    private String idpersona;
-    private String idse;
-        
+    private int idpersona;
+    private int idse;
+    private String idp;    
     private List<HistoriaClinica> hc;
     private List<HistoriaClinica> hcs;
     
@@ -59,26 +52,31 @@ public class HistoriaClinicaBeans{
      
     public HistoriaClinicaBeans() {
         historiaclinica = new HistoriaClinica();
-        
+        persona= new Persona();
+        usuario= new Usuario();
     }
     
     public String registrarHC(){
-        UIComponent component = UIComponent.getCurrentComponent(FacesContext.getCurrentInstance());
-        idpersona = (String) component.getAttributes().get("idpersona");
-        persona.setIdPersona(Integer.parseInt(idpersona));
-        idse = (String) component.getAttributes().get("idse");
-        usuario.setIdUsuario(Integer.parseInt(idse));
+        String idp = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idpersona");
+        String ids = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idse");
         
+        persona.setIdPersona(Integer.parseInt(idp));
+        usuario.setIdUsuario(Integer.parseInt(ids));
+        HistoriaClinicaDao hcdao=new HistoriaClinicaDao();
+        int ne = hcdao.NumEpidosio(Integer.parseInt(idp));
+        ne=ne+1;
         historiaclinica.setPersona(persona);
         historiaclinica.setUsuario(usuario);
-        HistoriaClinicaDao hcdao= new HistoriaClinicaDao();
-        
+        historiaclinica.setNumEpisodio(ne);
+            
         hcdao.registrarHC(historiaclinica);
-        historiaclinica = new HistoriaClinica();
+        
         
         return "Menu.xhtml";
         
     }
+
+    
     
     public List<HistoriaClinica> listarHC(){
         hc = new ArrayList<HistoriaClinica>();
@@ -136,21 +134,23 @@ public class HistoriaClinicaBeans{
         this.usuario = usuario;
     }
 
-    public String getIdpersona() {
+    public int getIdpersona() {
         return idpersona;
     }
 
-    public void setIdpersona(String idpersona) {
+    public void setIdpersona(int idpersona) {
         this.idpersona = idpersona;
     }
 
-    public String getIdse() {
+    public int getIdse() {
         return idse;
     }
 
-    public void setIdse(String idse) {
+    public void setIdse(int idse) {
         this.idse = idse;
     }
+
+    
 
     
 

@@ -16,6 +16,7 @@ public interface InterfaceHistoriaClinica {
     public List<HistoriaClinica> listarHC();
     public List<HistoriaClinica> listarHCS(int idhc);
     public HistoriaClinica BuscarHC(HistoriaClinica hc);
+    public int NumEpidosio(int idp);
     public boolean registrarHC(HistoriaClinica hc);
     public boolean editarHC(HistoriaClinica hc);
     public boolean eliminarHC(HistoriaClinica hc);

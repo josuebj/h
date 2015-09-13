@@ -50,7 +50,7 @@ public class GradoInstruccionBeans {
         List<GradoInstruccion> listrm = gidao.RangoMilitar(codtp);       
         rangomilitar.clear();      
         for(GradoInstruccion rm:listrm){
-            SelectItem selectItem = new SelectItem(rm.getTipoPersonal(),rm.getNombre());
+            SelectItem selectItem = new SelectItem(rm.getIdGradoInstruccion(),rm.getNombre());
             rangomilitar.add(selectItem);
             
         }       

@@ -37,7 +37,7 @@ public class PersonaTipoPersonaBeans {
         List<PersonaTipoPersona> listptp = ptpdao.Medico(idse);       
         medico.clear();      
         for(PersonaTipoPersona ptp:listptp){
-            SelectItem selectItem = new SelectItem(ptp.getPersona(),ptp.getPersona().getNombres());
+            SelectItem selectItem = new SelectItem(ptp.getPersona().getIdPersona(),ptp.getPersona().getNombres());
             medico.add(selectItem);    
         }       
         return medico;      

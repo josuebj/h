@@ -4,9 +4,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
 
@@ -20,7 +18,7 @@
         
                     <div class="container">
                         <div class="row">
-            <h:form class="form-horizontal" id="Admisionform" role="form">
+            <h:form class="form-horizontal"  role="form">
                 <div class="col-md-3">
                     <div class="form-group">
                         <label class="control-label col-md-7" >N Corelativo:</label>
@@ -49,9 +47,10 @@
                             </h:selectOneMenu>
                         </div>
                         <div class="col-md-4 col-md-offset-1" >
-                            <h:selectOneMenu id="rangom" class="form-control" >
+                            <h:selectOneMenu id="rangom" class="form-control" value="#{historiaClinicaBeans.admision.gradoInstruccion}" >
                                 <f:selectItem itemLabel="Rango Militar"/>
                                 <f:selectItems value="#{gradoInstruccionBeans.listarRangoMilitar()}" />
+                                
                             </h:selectOneMenu>
                         </div>
                         
@@ -60,10 +59,10 @@
                     <div class="form-group">
                         <label class="control-label col-md-3">Unidad Militar:</label>
                         <div class="col-md-9">
-                            <h:selectOneMenu id="um" class="form-control" >
+                            <h:selectOneMenu id="um" class="form-control" value="#{historiaClinicaBeans.admision.unidadMilitar}" >
                                 <f:selectItem itemLabel="Unidad Militar"/>
                                 <f:selectItems value="#{unidadMilitarBeans.listarServicio()}" />
-                                <p:ajax update="um"/>
+                                
                             </h:selectOneMenu>
                             
                         </div>
@@ -90,10 +89,10 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-9 col-md-offset-3">
-                            <h:selectOneMenu id="adis" class="form-control"  >
+                            <h:selectOneMenu id="adis" class="form-control" value="#{historiaClinicaBeans.admision.ubigeo}" >
                                 <f:selectItem itemLabel="Distrito"/>
                                 <f:selectItems value="#{ubigeoBeans.listarDistrito()}" />
-                                <p:ajax update="adis"/>
+                                
                     </h:selectOneMenu>
                         </div>
                     </div> 
@@ -121,18 +120,14 @@
                     <div class="form-group">
                     <label for="consultorio" class="control-label col-md-3 ">Medico</label>
                     <div class="col-md-9">
-                        <h:selectOneMenu id="medico" class="form-control" >
-                                <f:selectItem itemLabel="Especialidad"/>
+                        <h:selectOneMenu id="medico" class="form-control" value="#{historiaClinicaBeans.admision.persona}" >
+                                <f:selectItem itemLabel="Medico"/>
                                 <f:selectItems value="#{personaTipoPersonaBeans.listarMedico()}"/>
+                                
                         </h:selectOneMenu>
                     </div>
                     </div>
-                    <div class="form-group">
-                        
-                        
-                        
-                    </div>
-                    
+             
                         
                     
                 </div>
@@ -152,12 +147,9 @@
                     </div>
                     </div>
                 </div>
-                <input type="hidden" name="idpersona" value="#{personaBeans.persona.idPersona}"></input>
-                <input type="hidden" name="idse" value="#{sesionbeans.id}"></input>
-                <h:commandButton class="col-md-6 col-md-offset-3 btn btn-primary" value="registrar" action="#{historiaClinicaBeans.registrarHC()}">
-                     
-                </h:commandButton>
-            </h:form>
+                <input type="hidden" name="idper" value="#{personaBeans.persona.idPersona}"></input>
+                <input type="hidden" name="iduser" value="#{sesionbeans.id}"></input>
+                <h:commandButton class="col-md-6 col-md-offset-3 btn btn-primary" value="Registrar" action="#{historiaClinicaBeans.registrarHC()}"/>        </h:form>
                         </div>
                     </div>
                 </div>

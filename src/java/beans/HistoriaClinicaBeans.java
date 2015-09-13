@@ -67,8 +67,8 @@ public class HistoriaClinicaBeans{
     
     public String registrarHC(){
         
-        idp = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idpersona");
-        ids = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idse");
+        idp = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idper");
+        ids = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("iduser");
         
         
         persona.setIdPersona(Integer.parseInt(idp));
@@ -81,7 +81,7 @@ public class HistoriaClinicaBeans{
         historiaclinica.setNumEpisodio(ne);        
         rhc = hcdao.registrarHC(historiaclinica);
         
-       if(rhc=true){
+       if(rhc==true){
         int idhc=hcdao.UltimoHC(Integer.parseInt(idp));
         historiaclinica.setIdHistoriaClinica(idhc);
         admision.setHistoriaClinica(historiaclinica);        
@@ -91,10 +91,10 @@ public class HistoriaClinicaBeans{
         if(a=false){
         return "Logueo.xhtml";
         }
-        
         return "RegistrarPacietne.xhtml";
+       }else{
+       return "Inicio.xhtml";
        }
-       return "a.xhtml";
     }
 
     

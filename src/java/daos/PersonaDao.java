@@ -9,11 +9,16 @@ import entidades.Persona;
 
 
 import interfaces.InterfacePersona;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
+import org.jboss.logging.Logger;
+import sun.util.logging.PlatformLogger;
 import util.HibernateUtil;
 
 /**
@@ -106,6 +111,20 @@ public class PersonaDao implements InterfacePersona{
             
         }
         return b;
+    }
+
+    @Override
+    public void subirFoto(byte[] datos, String nombre) {
+        
+      File file= new File("hc/"+nombre);
+      try{
+          file.createNewFile();
+          FileOutputStream fout= new FileOutputStream(file);
+          fout.write(datos);
+          fout.close();
+      }catch (IOException ex){
+          
+      }
     }
 
     

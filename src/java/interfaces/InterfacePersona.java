@@ -19,4 +19,5 @@ public interface InterfacePersona {
     public boolean registrarPersona(Persona p);
     public boolean editarPersona(Persona p);
     public boolean eliminarPersona(Persona p);
+    public  void subirFoto(byte[] datos,String nombre);
 }

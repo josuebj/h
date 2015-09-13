@@ -1,5 +1,5 @@
 package entidades;
-// Generated 06-sep-2015 6:46:45 by Hibernate Tools 4.3.1
+// Generated 11-sep-2015 8:21:55 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -11,9 +11,11 @@ public class Admision  implements java.io.Serializable {
 
 
      private Integer idAdmision;
+     private GradoInstruccion gradoInstruccion;
      private HistoriaClinica historiaClinica;
      private Persona persona;
      private Ubigeo ubigeo;
+     private UnidadMilitar unidadMilitar;
      private Usuario usuario;
      private Date horaIngreso;
      private Date horaSalida;
@@ -23,16 +25,20 @@ public class Admision  implements java.io.Serializable {
     }
 
 	
-    public Admision(HistoriaClinica historiaClinica, Persona persona, Ubigeo ubigeo, Usuario usuario) {
+    public Admision(GradoInstruccion gradoInstruccion, HistoriaClinica historiaClinica, Persona persona, Ubigeo ubigeo, UnidadMilitar unidadMilitar, Usuario usuario) {
+        this.gradoInstruccion = gradoInstruccion;
         this.historiaClinica = historiaClinica;
         this.persona = persona;
         this.ubigeo = ubigeo;
+        this.unidadMilitar = unidadMilitar;
         this.usuario = usuario;
     }
-    public Admision(HistoriaClinica historiaClinica, Persona persona, Ubigeo ubigeo, Usuario usuario, Date horaIngreso, Date horaSalida, Date fechaReg) {
+    public Admision(GradoInstruccion gradoInstruccion, HistoriaClinica historiaClinica, Persona persona, Ubigeo ubigeo, UnidadMilitar unidadMilitar, Usuario usuario, Date horaIngreso, Date horaSalida, Date fechaReg) {
+       this.gradoInstruccion = gradoInstruccion;
        this.historiaClinica = historiaClinica;
        this.persona = persona;
        this.ubigeo = ubigeo;
+       this.unidadMilitar = unidadMilitar;
        this.usuario = usuario;
        this.horaIngreso = horaIngreso;
        this.horaSalida = horaSalida;
@@ -45,6 +51,13 @@ public class Admision  implements java.io.Serializable {
     
     public void setIdAdmision(Integer idAdmision) {
         this.idAdmision = idAdmision;
+    }
+    public GradoInstruccion getGradoInstruccion() {
+        return this.gradoInstruccion;
+    }
+    
+    public void setGradoInstruccion(GradoInstruccion gradoInstruccion) {
+        this.gradoInstruccion = gradoInstruccion;
     }
     public HistoriaClinica getHistoriaClinica() {
         return this.historiaClinica;
@@ -66,6 +79,13 @@ public class Admision  implements java.io.Serializable {
     
     public void setUbigeo(Ubigeo ubigeo) {
         this.ubigeo = ubigeo;
+    }
+    public UnidadMilitar getUnidadMilitar() {
+        return this.unidadMilitar;
+    }
+    
+    public void setUnidadMilitar(UnidadMilitar unidadMilitar) {
+        this.unidadMilitar = unidadMilitar;
     }
     public Usuario getUsuario() {
         return this.usuario;

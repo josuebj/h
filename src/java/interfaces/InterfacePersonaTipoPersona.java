@@ -14,4 +14,5 @@ import java.util.List;
  */
 public interface InterfacePersonaTipoPersona {
     public List<PersonaTipoPersona> Medico(int idse);
+    public boolean RegistrraTipop();
 }

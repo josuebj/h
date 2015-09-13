@@ -25,13 +25,13 @@
                     <div class="form-group">
                         <label class="control-label  col-md-2" for="nombre">Nombre:</label>
                         <div class=" col-md-3">
-                            <p:inputText class="form-control" id="nombre" a:placeholder="Nombre"/>
+                            <p:inputText class="form-control" id="nombre" value="#{personaBeans.persona.nombres}" a:placeholder="Nombre"/>
                         </div>
                         <div class="  col-md-3">
-                            <p:inputText class="form-control" id="apellidop" a:placeholder="Apellido Paterno"/>
+                            <p:inputText class="form-control" id="apellidop" value="#{personaBeans.persona.apellidoPaterno}" a:placeholder="Apellido Paterno"/>
                         </div>
                         <div class="  col-md-3">
-                            <p:inputText class="form-control" id="apellidom" a:placeholder="Apellido Materno"/>
+                            <p:inputText class="form-control" id="apellidom" value="#{personaBeans.persona.apellidoMaterno}" a:placeholder="Apellido Materno"/>
                         </div>
                     </div>
 
@@ -39,7 +39,7 @@
                         
                         <label class="control-label   col-md-2 " for="dni">Genero:</label>
                         <div class=" col-md-3">
-                            <h:selectOneMenu class="form-control">
+                            <h:selectOneMenu class="form-control" value="#{personaBeans.persona.sexo}">
                                 <f:selectItem itemLabel="Genero" itemValue=""/>
                                 <f:selectItem itemLabel="Masculino" itemValue="M" />
                                 <f:selectItem itemLabel="Femenino" itemValue="F" />
@@ -47,10 +47,12 @@
                         </div>
                         <label class="control-label   col-md-2 " for="dni">Estado Civil:</label>
                         <div class="  col-md-3">
-                            <h:selectOneMenu class="form-control">
+                            <h:selectOneMenu class="form-control" value="#{personaBeans.persona.estadoCivil}">
                                 <f:selectItem itemLabel="Estado Civil" itemValue=""/>
                                 <f:selectItem itemLabel="Soltero" itemValue="S" />
                                 <f:selectItem itemLabel="Casado" itemValue="C" />
+                                <f:selectItem itemLabel="Viudo" itemValue="V" />
+                                <f:selectItem itemLabel="Divorsadio" itemValue="D" />
                             </h:selectOneMenu>
                             
                         </div>
@@ -58,17 +60,17 @@
                     <div class="form-group">
                         <label class="control-label   col-md-2 " for="dni">DNI:</label>
                         <div class="  col-md-2">
-                            <p:inputText class="form-control" id="dni" a:placeholder="DNI"/>        
+                            <p:inputText class="form-control" id="dni" value="#{personaBeans.persona.dni}" a:placeholder="DNI"/>        
                         </div>
                         <label class="control-label  col-md-2" for="cip">Codigo Militar:</label>
                         <div class=" col-md-3">
-                            <p:inputText  class="form-control" id="cip" a:placeholder="Codigo Militar"/>  
+                            <p:inputText  class="form-control" id="cip" value="#{personaBeans.persona.numeroAdministrativo}" a:placeholder="Codigo Militar"/>  
                         </div>
                     </div>
                     <div class="form-group"> 
                         <label class="control-label   col-md-2 " for="domicilio">Domicilio:</label>
                         <div class="  col-md-4">
-                            <p:inputText class="form-control" id="domicilio" a:placeholder="Domicilio"/>  
+                            <p:inputText class="form-control" id="domicilio"  value="#{personaBeans.persona.direccionActual}" a:placeholder="Domicilio"/>  
                                 
                         </div>
                         
@@ -80,7 +82,7 @@
 			
                 	<div class="input-group date form_date col-md-12" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
                             
-                            <p:inputText class="form-control"  size="16" disabled="true" onchange="CalcularEdad()" value=""/>
+                            <p:inputText class="form-control"  size="16" disabled="true" onchange="CalcularEdad()" value="#{personaBeans.persona.fechaNac}"/>
                     	<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
 						<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                 	</div>
@@ -127,41 +129,44 @@
             <div class="form-group">
                 <label class="control-label  col-md-2" for="ocupacion">Ocupacion:</label>
                 <div class=" col-md-3">
-                    <p:inputText  class="form-control" id="ocupacion" a:placeholder="Ocupacion"/>
+                    <p:inputText  class="form-control" id="ocupacion" value="#{personaBeans.persona.ocupacionOficio}" a:placeholder="Ocupacion"/>
                 </div>
-                <label class="control-label  col-md-2" for="religion">tipo de sangre:</label>
+                <label class="control-label  col-md-2" for="tiposangre">tipo de sangre:</label>
                 <div class=" col-md-3">
-                    <p:inputText  class="form-control" id="religion"  a:placeholder="Religion"/>
+                    <p:inputText  class="form-control" id="religion" value="#{personaBeans.persona.tipoSangre}" a:placeholder="Tipo de sangre"/>
                 </div>
                 
             </div>
             <div class="form-group">
-                <label class="control-label  col-md-3" for="grains">Grado de instruccion:</label>
+                <label class="control-label  col-md-3" for="grains" >Grado de instruccion:</label>
                 <div class=" col-md-3">
-                    <p:inputText class="form-control" id="gi"  a:placeholder="Grado de Instruccion"/> 
+                    <p:inputText class="form-control" id="gi" value="#{personaBeans.persona.gradoInstruccion}" a:placeholder="Grado de Instruccion"/> 
                 </div>
-                
+                ninguno
+                primaria
+                secundario
+                superior
 
             </div> 
             <div class="form-group">
                 <label class="control-label  col-md-2" for="nombre"><span class="glyphicon glyphicon-envelope"></span></label>
                     <div class=" col-md-3">                       
-                        <p:inputText class="form-control" a:placeholder="Email" />   
+                        <p:inputText class="form-control" value="#{personaBeans.persona.email}" a:placeholder="Email" />   
                     </div>
                 <label class="control-label  col-md-1" for="nombre"><span class="glyphicon glyphicon-phone-alt"></span></label>
                     <div class="  col-md-2">
-                        <p:inputText class="form-control" id="telefono" a:placeholder="Telefono"/>  
+                        <p:inputText class="form-control" id="telefono"  a:placeholder="Telefono"/>  
                     </div>
                 <label class="control-label  col-md-1" for="nombre"><span class="glyphicon glyphicon-phone"></span></label>        
                     <div class="  col-md-3">
-                        <p:inputText class="form-control" id="Celular" a:placeholder="Celular"/>                               
+                        <p:inputText class="form-control" id="Celular" value="#{personaBeans.persona.celular}" a:placeholder="Celular"/>                               
                     </div>
             </div>
                 </div>
                 
                 
                 
-        <div class="col-md-3">
+        <div class="col-md-3 ">
             <div class="form-group">  
                 <!-- image-preview-filename input [CUT FROM HERE]-->
                 <div class="input-group image-preview">
@@ -175,7 +180,7 @@
                     <div class="btn btn-default image-preview-input">
                             <span class="glyphicon glyphicon-folder-open"></span>
                             <span class="image-preview-input-title">Browse</span>
-                            <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview" class="form-control"/> <!-- rename it -->
+                            <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview" value="#{personaBeans.foto}" class="form-control"/> <!-- rename it -->
                     </div>
                     </span>
                 </div><!-- /input-group image-preview [TO HERE]--> 
@@ -189,9 +194,10 @@
             </div>
 
             
+            <input type="hidden" name="idtipop" value="1"></input>
+            <input type="hidden" name="idse" value="#{sesionbeans.id}"></input>
             
-            
-            <p:commandButton class="col-md-6 col-md-offset-3 btn btn-primary" value="Enviar"/>
+            <p:commandButton class="col-md-6 col-md-offset-3 btn btn-primary" value="#{personaBeans.registrarpersona()}"/>
            
 
         </h:form>

@@ -33,5 +33,10 @@ public class PersonaTipoPersonaDao implements InterfacePersonaTipoPersona{
             return listap;
             
     }
+
+    @Override
+    public boolean RegistrraTipop() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

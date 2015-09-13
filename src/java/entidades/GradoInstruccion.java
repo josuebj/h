@@ -1,5 +1,5 @@
 package entidades;
-// Generated 06-sep-2015 6:46:45 by Hibernate Tools 4.3.1
+// Generated 11-sep-2015 8:21:55 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -18,16 +18,18 @@ public class GradoInstruccion  implements java.io.Serializable {
      private String nombre;
      private Date fechaReg;
      private Set<Persona> personas = new HashSet<Persona>(0);
+     private Set<Admision> admisions = new HashSet<Admision>(0);
 
     public GradoInstruccion() {
     }
 
-    public GradoInstruccion(String tipoPersonal, String rangoMilitar, String nombre, Date fechaReg, Set<Persona> personas) {
+    public GradoInstruccion(String tipoPersonal, String rangoMilitar, String nombre, Date fechaReg, Set<Persona> personas, Set<Admision> admisions) {
        this.tipoPersonal = tipoPersonal;
        this.rangoMilitar = rangoMilitar;
        this.nombre = nombre;
        this.fechaReg = fechaReg;
        this.personas = personas;
+       this.admisions = admisions;
     }
    
     public Integer getIdGradoInstruccion() {
@@ -71,6 +73,13 @@ public class GradoInstruccion  implements java.io.Serializable {
     
     public void setPersonas(Set<Persona> personas) {
         this.personas = personas;
+    }
+    public Set<Admision> getAdmisions() {
+        return this.admisions;
+    }
+    
+    public void setAdmisions(Set<Admision> admisions) {
+        this.admisions = admisions;
     }
 
 

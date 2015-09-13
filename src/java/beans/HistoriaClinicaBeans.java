@@ -6,6 +6,8 @@
 package beans;
 
 
+
+import daos.AdmisionDao;
 import daos.HistoriaClinicaDao;
 import entidades.Admision;
 import entidades.HistoriaClinica;
@@ -16,10 +18,13 @@ import entidades.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
+
+
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-import javax.faces.component.UIComponent;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+
+
 
 
 /**
@@ -27,24 +32,25 @@ import javax.faces.context.FacesContext;
  * @author Berti
  */
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class HistoriaClinicaBeans{
     
-    private HistoriaClinica historiaclinica;
-    
-    
+    private HistoriaClinica historiaclinica;   
     private int idhc;
     private String ok;
     private Persona persona;
     private Usuario usuario;
-    private int idpersona;
-    private int idse;
-    private String idp;    
+    private Admision admision;
+    
+    
+       
     private List<HistoriaClinica> hc;
     private List<HistoriaClinica> hcs;
     
+    private String idp;
+    private String ids;
     
-    
+    private boolean rhc;
     
     /**
      * Creates a new instance of HistoriaClinicaBeans
@@ -52,13 +58,18 @@ public class HistoriaClinicaBeans{
      
     public HistoriaClinicaBeans() {
         historiaclinica = new HistoriaClinica();
+        admision = new Admision();
         persona= new Persona();
         usuario= new Usuario();
     }
     
+
+    
     public String registrarHC(){
-        String idp = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idpersona");
-        String ids = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idse");
+        
+        idp = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idpersona");
+        ids = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idse");
+        
         
         persona.setIdPersona(Integer.parseInt(idp));
         usuario.setIdUsuario(Integer.parseInt(ids));
@@ -67,13 +78,23 @@ public class HistoriaClinicaBeans{
         ne=ne+1;
         historiaclinica.setPersona(persona);
         historiaclinica.setUsuario(usuario);
-        historiaclinica.setNumEpisodio(ne);
-            
-        hcdao.registrarHC(historiaclinica);
+        historiaclinica.setNumEpisodio(ne);        
+        rhc = hcdao.registrarHC(historiaclinica);
         
+       if(rhc=true){
+        int idhc=hcdao.UltimoHC(Integer.parseInt(idp));
+        historiaclinica.setIdHistoriaClinica(idhc);
+        admision.setHistoriaClinica(historiaclinica);        
+        AdmisionDao admisiondao= new AdmisionDao();
+        boolean a= admisiondao.registrarAdmision(admision);       
         
-        return "Menu.xhtml";
+        if(a=false){
+        return "Logueo.xhtml";
+        }
         
+        return "RegistrarPacietne.xhtml";
+       }
+       return "a.xhtml";
     }
 
     
@@ -134,20 +155,38 @@ public class HistoriaClinicaBeans{
         this.usuario = usuario;
     }
 
-    public int getIdpersona() {
-        return idpersona;
+
+
+    public Admision getAdmision() {
+        return admision;
     }
 
-    public void setIdpersona(int idpersona) {
-        this.idpersona = idpersona;
+    public void setAdmision(Admision admision) {
+        this.admision = admision;
     }
 
-    public int getIdse() {
-        return idse;
+    public String getIdp() {
+        return idp;
     }
 
-    public void setIdse(int idse) {
-        this.idse = idse;
+    public void setIdp(String idp) {
+        this.idp = idp;
+    }
+
+    public String getIds() {
+        return ids;
+    }
+
+    public void setIds(String ids) {
+        this.ids = ids;
+    }
+
+    public boolean isRhc() {
+        return rhc;
+    }
+
+    public void setRhc(boolean rhc) {
+        this.rhc = rhc;
     }
 
     

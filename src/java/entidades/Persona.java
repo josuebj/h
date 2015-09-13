@@ -1,5 +1,5 @@
 package entidades;
-// Generated 06-sep-2015 6:46:45 by Hibernate Tools 4.3.1
+// Generated 11-sep-2015 8:21:55 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -15,7 +15,6 @@ public class Persona  implements java.io.Serializable {
      private Integer idPersona;
      private GradoInstruccion gradoInstruccion;
      private Ubigeo ubigeo;
-     private UnidadMilitar unidadMilitar;
      private Usuario usuario;
      private String nombres;
      private String apellidoMaterno;
@@ -45,17 +44,15 @@ public class Persona  implements java.io.Serializable {
     }
 
 	
-    public Persona(GradoInstruccion gradoInstruccion, Ubigeo ubigeo, UnidadMilitar unidadMilitar, Usuario usuario, String nombres) {
+    public Persona(GradoInstruccion gradoInstruccion, Ubigeo ubigeo, Usuario usuario, String nombres) {
         this.gradoInstruccion = gradoInstruccion;
         this.ubigeo = ubigeo;
-        this.unidadMilitar = unidadMilitar;
         this.usuario = usuario;
         this.nombres = nombres;
     }
-    public Persona(GradoInstruccion gradoInstruccion, Ubigeo ubigeo, UnidadMilitar unidadMilitar, Usuario usuario, String nombres, String apellidoMaterno, String apellidoPaterno, Character sexo, Date fechaNac, Character estadoCivil, String direccionActual, Integer dni, String email, String celular, String ocupacionOficio, String foto, String tipoSangre, Integer numeroAdministrativo, String estado, Date fechaReg, Set<Usuario> usuarios, Set<Alergia> alergias, Set<Sexualidad> sexualidads, Set<Admision> admisions, Set<PersonaTipoPersona> personaTipoPersonas, Set<HistoriaClinica> historiaClinicas, Set<Antecedente> antecedentes) {
+    public Persona(GradoInstruccion gradoInstruccion, Ubigeo ubigeo, Usuario usuario, String nombres, String apellidoMaterno, String apellidoPaterno, Character sexo, Date fechaNac, Character estadoCivil, String direccionActual, Integer dni, String email, String celular, String ocupacionOficio, String foto, String tipoSangre, Integer numeroAdministrativo, String estado, Date fechaReg, Set<Usuario> usuarios, Set<Alergia> alergias, Set<Sexualidad> sexualidads, Set<Admision> admisions, Set<PersonaTipoPersona> personaTipoPersonas, Set<HistoriaClinica> historiaClinicas, Set<Antecedente> antecedentes) {
        this.gradoInstruccion = gradoInstruccion;
        this.ubigeo = ubigeo;
-       this.unidadMilitar = unidadMilitar;
        this.usuario = usuario;
        this.nombres = nombres;
        this.apellidoMaterno = apellidoMaterno;
@@ -102,13 +99,6 @@ public class Persona  implements java.io.Serializable {
     
     public void setUbigeo(Ubigeo ubigeo) {
         this.ubigeo = ubigeo;
-    }
-    public UnidadMilitar getUnidadMilitar() {
-        return this.unidadMilitar;
-    }
-    
-    public void setUnidadMilitar(UnidadMilitar unidadMilitar) {
-        this.unidadMilitar = unidadMilitar;
     }
     public Usuario getUsuario() {
         return this.usuario;

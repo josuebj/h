@@ -1,13 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 06-sep-2015 6:46:47 by Hibernate Tools 4.3.1 -->
+<!-- Generated 11-sep-2015 8:21:57 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="entidades.Admision" table="admision" catalog="hce" optimistic-lock="version">
         <id name="idAdmision" type="java.lang.Integer">
             <column name="ID_Admision" />
             <generator class="identity" />
         </id>
+        <many-to-one name="gradoInstruccion" class="entidades.GradoInstruccion" fetch="select">
+            <column name="Grado_Instruccion_ID_Grado_Instruccion" not-null="true" />
+        </many-to-one>
         <many-to-one name="historiaClinica" class="entidades.HistoriaClinica" fetch="select">
             <column name="Historia_Clinica_ID_Historia_Clinica" not-null="true" />
         </many-to-one>
@@ -16,6 +19,9 @@
         </many-to-one>
         <many-to-one name="ubigeo" class="entidades.Ubigeo" fetch="select">
             <column name="Ubigeo_ID_Ubigeo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="unidadMilitar" class="entidades.UnidadMilitar" fetch="select">
+            <column name="Unidad_Militar_ID_Unidad_Militar" not-null="true" />
         </many-to-one>
         <many-to-one name="usuario" class="entidades.Usuario" fetch="select">
             <column name="Usuario_ID_Usuario" not-null="true" />

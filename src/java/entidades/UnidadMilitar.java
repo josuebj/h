@@ -1,5 +1,5 @@
 package entidades;
-// Generated 06-sep-2015 6:46:45 by Hibernate Tools 4.3.1
+// Generated 11-sep-2015 8:21:55 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -16,16 +16,16 @@ public class UnidadMilitar  implements java.io.Serializable {
      private String siglas;
      private String unidadMilitar;
      private Date fechaReg;
-     private Set<Persona> personas = new HashSet<Persona>(0);
+     private Set<Admision> admisions = new HashSet<Admision>(0);
 
     public UnidadMilitar() {
     }
 
-    public UnidadMilitar(String siglas, String unidadMilitar, Date fechaReg, Set<Persona> personas) {
+    public UnidadMilitar(String siglas, String unidadMilitar, Date fechaReg, Set<Admision> admisions) {
        this.siglas = siglas;
        this.unidadMilitar = unidadMilitar;
        this.fechaReg = fechaReg;
-       this.personas = personas;
+       this.admisions = admisions;
     }
    
     public Integer getIdUnidadMilitar() {
@@ -56,12 +56,12 @@ public class UnidadMilitar  implements java.io.Serializable {
     public void setFechaReg(Date fechaReg) {
         this.fechaReg = fechaReg;
     }
-    public Set<Persona> getPersonas() {
-        return this.personas;
+    public Set<Admision> getAdmisions() {
+        return this.admisions;
     }
     
-    public void setPersonas(Set<Persona> personas) {
-        this.personas = personas;
+    public void setAdmisions(Set<Admision> admisions) {
+        this.admisions = admisions;
     }
 
 

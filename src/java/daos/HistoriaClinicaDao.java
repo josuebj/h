@@ -108,9 +108,27 @@ public class HistoriaClinicaDao implements InterfaceHistoriaClinica{
 
     @Override
     public int NumEpidosio(int idp) {
+        
         Session s = HibernateUtil.getSessionFactory().openSession();
             s.beginTransaction();
             String sql="select max(hc.numEpisodio) from HistoriaClinica hc where hc.persona=:idp";
+            org.hibernate.Query query = s.createQuery(sql); 
+            query.setParameter("idp", idp);
+            
+    if (null != query.list()) {
+         return (int) query.uniqueResult();
+    }else{
+    return 0;
+    }
+
+        
+    }
+
+    @Override
+    public int UltimoHC(int idp) {
+        Session s = HibernateUtil.getSessionFactory().openSession();
+            s.beginTransaction();
+            String sql="select max(hc.idHistoriaClinica) from HistoriaClinica hc where hc.persona=:idp";
             org.hibernate.Query query = s.createQuery(sql); 
             query.setParameter("idp", idp);              
         return (int) query.uniqueResult();

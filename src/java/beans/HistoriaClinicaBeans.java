@@ -10,8 +10,11 @@ package beans;
 import daos.AdmisionDao;
 import daos.HistoriaClinicaDao;
 import entidades.Admision;
+import entidades.GradoInstruccion;
 import entidades.HistoriaClinica;
 import entidades.Persona;
+import entidades.Ubigeo;
+import entidades.UnidadMilitar;
 import entidades.Usuario;
 
 
@@ -41,6 +44,9 @@ public class HistoriaClinicaBeans{
     private Persona persona;
     private Usuario usuario;
     private Admision admision;
+    private Ubigeo ubigeo;
+    private UnidadMilitar unidadmilitar;
+    private GradoInstruccion gradoinstruccion;
     
     
        
@@ -52,6 +58,12 @@ public class HistoriaClinicaBeans{
     
     private boolean rhc;
     
+    private int personal;
+    private int umilitar;
+    private int procedencia;
+    private int medico;
+    
+    
     /**
      * Creates a new instance of HistoriaClinicaBeans
      */
@@ -61,40 +73,56 @@ public class HistoriaClinicaBeans{
         admision = new Admision();
         persona= new Persona();
         usuario= new Usuario();
+        gradoinstruccion= new GradoInstruccion();
+        ubigeo = new Ubigeo();
+        unidadmilitar = new UnidadMilitar();
+        
     }
     
 
     
     public String registrarHC(){
-        
         idp = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idper");
         ids = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("iduser");
         
         
         persona.setIdPersona(Integer.parseInt(idp));
         usuario.setIdUsuario(Integer.parseInt(ids));
+        
         HistoriaClinicaDao hcdao=new HistoriaClinicaDao();
         int ne = hcdao.NumEpidosio(Integer.parseInt(idp));
         ne=ne+1;
         historiaclinica.setPersona(persona);
         historiaclinica.setUsuario(usuario);
-        historiaclinica.setNumEpisodio(ne);        
+        historiaclinica.setNumEpisodio(ne);
+        
         rhc = hcdao.registrarHC(historiaclinica);
         
        if(rhc==true){
-        int idhc=hcdao.UltimoHC(Integer.parseInt(idp));
+       int idhc=hcdao.UltimoHC(Integer.parseInt(idp));
         historiaclinica.setIdHistoriaClinica(idhc);
-        admision.setHistoriaClinica(historiaclinica);        
+        gradoinstruccion.setIdGradoInstruccion(personal);
+        unidadmilitar.setIdUnidadMilitar(umilitar);
+        ubigeo.setIdUbigeo(procedencia);
+        persona.setIdPersona(medico);
+        
+        admision.setHistoriaClinica(historiaclinica);
+        admision.setGradoInstruccion(gradoinstruccion);
+        admision.setUnidadMilitar(unidadmilitar);
+        admision.setUbigeo(ubigeo);
+        admision.setPersona(persona);
+        admision.setUsuario(usuario);
+        
+        
         AdmisionDao admisiondao= new AdmisionDao();
         boolean a= admisiondao.registrarAdmision(admision);       
         
-        if(a=false){
-        return "Logueo.xhtml";
+        if(a=true){
+        return "Inicio.xhtml";
         }
-        return "RegistrarPacietne.xhtml";
-       }else{
-       return "Inicio.xhtml";
+        return "Logueo.xhtml";
        }
+        return "Logueo.xhtml";
     }
 
     
@@ -188,6 +216,40 @@ public class HistoriaClinicaBeans{
     public void setRhc(boolean rhc) {
         this.rhc = rhc;
     }
+
+    public int getPersonal() {
+        return personal;
+    }
+
+    public void setPersonal(int personal) {
+        this.personal = personal;
+    }
+
+    public int getUmilitar() {
+        return umilitar;
+    }
+
+    public void setUmilitar(int umilitar) {
+        this.umilitar = umilitar;
+    }
+
+    public int getProcedencia() {
+        return procedencia;
+    }
+
+    public void setProcedencia(int procedencia) {
+        this.procedencia = procedencia;
+    }
+
+    public int getMedico() {
+        return medico;
+    }
+
+    public void setMedico(int medico) {
+        this.medico = medico;
+    }
+
+    
 
     
 
